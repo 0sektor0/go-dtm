@@ -3,6 +3,7 @@ package main
 import (
 	"log"
 	"net/http"
+
 	"github.com/gorilla/mux"
 
 	api "github.com/0sektor0/go-dtm/api"
@@ -16,7 +17,7 @@ func NewServer() (*Server, error) {
 	server := &Server{}
 
 	apiClient, err := api.NewApiClient()
-	if(err != nil) {
+	if err != nil {
 		return nil, err
 	}
 
@@ -25,9 +26,13 @@ func NewServer() (*Server, error) {
 }
 
 func (this *Server) Start() {
+	settings, _ := api.GetSettings()
+
 	r := mux.NewRouter()
-    r.HandleFunc("/authorize", this.authorize).Methods("POST")
-    log.Fatal(http.ListenAndServe(":8000", r))
+	r.HandleFunc("/auth", this.authorize).Methods("GET")
+
+	log.Printf("starting on port %s", settings.Port)
+	log.Fatal(http.ListenAndServe(settings.Port, r))
 }
 
 func (this *Server) authorize(response http.ResponseWriter, request *http.Request) {

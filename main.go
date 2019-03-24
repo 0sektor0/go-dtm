@@ -6,7 +6,7 @@ import (
 
 func main() {
 	server, err := NewServer()
-	if(err != nil) {
+	if err != nil {
 		log.Panicln(err)
 	}
 

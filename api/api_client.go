@@ -8,7 +8,7 @@ func NewApiClient() (*ApiClient, error) {
 	client := &ApiClient{}
 	settings, err := GetSettings()
 
-	if(err != nil) {
+	if err != nil {
 		return nil, err
 	}
 
