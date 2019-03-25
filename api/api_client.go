@@ -2,6 +2,8 @@ package api
 
 type ApiClient struct {
 	_settings *Settings
+	_users    IUserStorage
+	_sessions ISessionStorage
 }
 
 func NewApiClient() (*ApiClient, error) {

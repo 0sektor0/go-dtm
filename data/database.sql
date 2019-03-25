@@ -1,3 +1,6 @@
+USE go_dtm;
+
+
 DROP TABLE IF EXISTS comment CASCADE;
 DROP TABLE IF EXISTS attachment CASCADE;
 DROP TABLE IF EXISTS attachment_type CASCADE;
@@ -5,7 +8,6 @@ DROP TABLE IF EXISTS task CASCADE;
 DROP TABLE IF EXISTS task_status CASCADE;
 DROP TABLE IF EXISTS task_type CASCADE;
 DROP TABLE IF EXISTS developer CASCADE;
-
 
 
 CREATE TABLE developer (
@@ -77,3 +79,4 @@ CREATE INDEX comment_id_idx ON comment(id);
 CREATE INDEX task_id_idx ON task(id);
 CREATE INDEX task_Status_id_idx ON task_status(id);
 CREATE INDEX task_type_id_idx ON task_type(id);
+CREATE INDEX developer_login_idx ON developer(login);
