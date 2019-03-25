@@ -21,12 +21,12 @@ type SessionStorage struct {
 
 func NewSessionStorage(users IUserStorage) *SessionStorage {
 	sessions := &SessionStorage{
-		_users: users,
+		_users:    users,
 		_sessions: make(map[string]*models.Session),
 	}
 
 	users.Subscribe(sessions.OnUserInfoUpdate)
-	
+
 	return sessions
 }
 
