@@ -27,10 +27,12 @@ func main() {
 	networkHandler, err := NewNetworkHandler()
 	if err != nil {
 		logger.Error(err)
+		return
 	}
 
-	apiRouter.AddHandlerPost("/signin", networkHandler.AddUser)
+	apiRouter.AddHandlerPost("/signup", networkHandler.AddUser)
 	apiRouter.AddHandlerPost("/auth", networkHandler.Authorize)
+	apiRouter.AddHandlerPost("/logout", networkHandler.LogOut)
 	
 	apiRouter.AddHandlerPost("/task/create", networkHandler.AuthMiddleware(networkHandler.AddUser))
 

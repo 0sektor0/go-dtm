@@ -3,19 +3,19 @@ package api
 import (
 	"database/sql"
 
-	models "github.com/0sektor0/go-dtm/models"
+	"github.com/0sektor0/go-dtm/models"
 )
 
 type UserUpdateDelegate func(*models.User)
 
 type IUserStorage interface {
-	Create(login string, password string) error
+	Create(login string, password string) (*models.User, error)
 
 	Delete(id int) error
 
-	FindByLogin(login string) *models.User
+	FindByLogin(login string) (*models.User, error) 
 
-	FindById(id int) *models.User
+	FindById(id int) (*models.User, error) 
 
 	Subscribe(handler UserUpdateDelegate)
 }
@@ -34,22 +34,40 @@ func NewUserStorage(db *sql.DB) *UserStorage {
 	return storage
 }
 
-func (this *UserStorage) Create(login string, password string) error {
-	return nil
+func (this *UserStorage) Create(login string, password string) (*models.User, error) {
+	result := this._db.QueryRow(
+		"INSERT INTO developer(login, password) VALUES ($1,$2) RETURNING id, login, password, picture, is_admin;",
+		login, password,
+	)
+
+	user, err := ScanUser(result)
+	return user, err
 }
 
 func (this *UserStorage) Delete(id int) error {
 	return nil
 }
 
-func (this *UserStorage) FindByLogin(login string) *models.User {
-	return nil
+func (this *UserStorage) FindByLogin(login string) (*models.User, error) {
+	result := this._db.QueryRow(
+		"SELECT id, login, password, picture, is_admin FROM developer WHERE login=$1;",
+		login, 
+	)
+
+	user, err := ScanUser(result)
+	return user, err
 }
 
-func (this *UserStorage) FindById(id int) *models.User {
-	return nil
+func (this *UserStorage) FindById(id int) (*models.User, error) {
+	result := this._db.QueryRow(
+		"SELECT id, login, password, picture, is_admin FROM developer WHERE id=$1;",
+		id, 
+	)
+
+	user, err := ScanUser(result)
+	return user, err
 }
 
 func (this *UserStorage) Subscribe(handler UserUpdateDelegate) {
-
+	this._handlers = append(this._handlers, handler)
 }

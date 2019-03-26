@@ -3,7 +3,7 @@ package api
 import (
 	"database/sql"
 
-	_ "github.com/go-sql-driver/mysql"
+	_ "github.com/lib/pq"
 )
 
 type ApiClient struct {
@@ -18,6 +18,11 @@ func NewApiClient() (*ApiClient, error) {
 	}
 
 	db, err := sql.Open(settings.Connector, settings.ConnectionString)
+	if err != nil {
+		return nil, err
+	}
+
+	err = db.Ping()
 	if err != nil {
 		return nil, err
 	}
