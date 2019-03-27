@@ -68,6 +68,27 @@ func (this *UserStorage) FindById(id int) (*models.User, error) {
 	return user, err
 }
 
+func (this *UserStorage) Update(user *models.User) error {
+	result := this._db.QueryRow(
+		"UPDATE developer SET login=$1, password=$2, picture=$3, is_admin=$4 WHERE id=$5 RETURNING id, login, password, picture, is_admin;",
+		user.Login, user.Password, user.Picture, user.IsAdmin, user.Id, 
+	)
+
+	updatedUser, err := ScanUser(result)
+	if err != nil {
+		return err
+	}
+
+	this.OnNext(updatedUser)
+	return nil
+}
+
 func (this *UserStorage) Subscribe(handler UserUpdateDelegate) {
 	this._handlers = append(this._handlers, handler)
+}
+
+func (this *UserStorage) OnNext(userInfo *models.User) {
+	for _, handler := range this._handlers {
+		handler(userInfo)
+	}
 }

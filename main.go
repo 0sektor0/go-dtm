@@ -34,7 +34,7 @@ func main() {
 	apiRouter.AddHandlerPost("/auth", networkHandler.Authorize)
 	apiRouter.AddHandlerPost("/logout", networkHandler.LogOut)
 	
-	apiRouter.AddHandlerPost("/task/create", networkHandler.AuthMiddleware(networkHandler.AddUser))
+	apiRouter.AddHandlerPost("/task/create", networkHandler.AuthMiddleware(networkHandler.AddTask))
 
 	settings, _ := api.GetSettings()
 	logger.Info(settings)

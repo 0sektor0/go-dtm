@@ -1,16 +1,19 @@
 package main
 
 import (
-	"net/http"
 	"encoding/json"
+	"net/http"
+
 	"github.com/0sektor0/go-dtm/api"
+	"github.com/0sektor0/go-dtm/models"
 	"github.com/0sektor0/go-dtm/router"
 )
 
 const (
-	POST_LOGIN_PARAM = "login"
+	CONTEXT_SESSION_KEY = "session"
+	POST_LOGIN_PARAM    = "login"
 	POST_PASSWORD_PARAM = "password"
-	POST_TOKEN_PARAM = "token"
+	POST_TOKEN_PARAM    = "token"
 )
 
 type NetworkHandler struct {
@@ -41,9 +44,16 @@ func SendResponse(ctx router.IContext, data interface{}, err error) {
 	ctx.Write(bytes)
 }
 
-// TODO
 func (this *NetworkHandler) AuthMiddleware(next router.HandlerFunc) router.HandlerFunc {
 	return func(ctx router.IContext) {
+		token := ctx.PostParam(POST_TOKEN_PARAM)
+		session, err := this._apiClient.Sessions.Authentificate(token)
+
+		if err != nil {
+			SendResponse(ctx, nil, err)
+		}
+
+		ctx.AddCtxParam(CONTEXT_SESSION_KEY, session)
 		next(ctx)
 	}
 }
@@ -52,9 +62,19 @@ func (this *NetworkHandler) AuthMiddleware(next router.HandlerFunc) router.Handl
 func (this *NetworkHandler) Authorize(ctx router.IContext) {
 	login := ctx.PostParam(POST_LOGIN_PARAM)
 	password := ctx.PostParam(POST_PASSWORD_PARAM)
-	
+
 	session, err := this._apiClient.Sessions.LogIn(login, password)
 	SendResponse(ctx, session, err)
+}
+
+func GetSessionFromContext(ctx router.IContext) *models.Session {
+	data, ok := ctx.CtxParam(CONTEXT_SESSION_KEY)
+	if !ok {
+		return nil
+	}
+
+	session := data.(*models.Session)
+	return session
 }
 
 func (this *NetworkHandler) LogOut(ctx router.IContext) {
@@ -63,9 +83,11 @@ func (this *NetworkHandler) LogOut(ctx router.IContext) {
 	SendResponse(ctx, "ok", err)
 }
 
+// TODO
 // POST: /task/create title=...&text=...&asignee... => 200 [task json]
 func (this *NetworkHandler) AddTask(ctx router.IContext) {
-
+	session := GetSessionFromContext(ctx)
+	SendResponse(ctx, session, nil)
 }
 
 // POST: /comment/create text=...&task_id=... => 200 [comment json]
@@ -73,7 +95,7 @@ func (this *NetworkHandler) AddComment(ctx router.IContext) {
 
 }
 
-// POST: /attachment/create 
+// POST: /attachment/create
 func (this *NetworkHandler) AddAttachment(ctx router.IContext) {
 
 }
@@ -92,7 +114,7 @@ func (this *NetworkHandler) AddTaskType(ctx router.IContext) {
 func (this *NetworkHandler) AddUser(ctx router.IContext) {
 	login := ctx.PostParam(POST_LOGIN_PARAM)
 	password := ctx.PostParam(POST_PASSWORD_PARAM)
-	
+
 	user, err := this._apiClient.Users.Create(login, password)
 	SendResponse(ctx, user, err)
 }
