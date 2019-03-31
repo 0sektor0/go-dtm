@@ -25,12 +25,13 @@ func ScanType(row IRow) (*models.Type, error) {
 func ScanTask(row IRow) (*models.Task, error) {
 	task := new(models.Task)
 	task.Attachments = make([]*models.Attachment, 0)
+	task.Comments = make([]*models.Comment, 0)
 	task.Creator = &models.User{}
 	task.Asignee = &models.User{}
 	task.TaskStatus = &models.Type{}
 	task.TaskType = &models.Type{}
 
-	err := row.Scan(&task.Id, &task.Title, &task.Text, &task.CreationDate,
+	err := row.Scan(&task.Id, &task.Title, &task.Text, &task.CreationDate, &task.StartDate, &task.EndDate, &task.UpdateDate,
 		&task.Creator.Id, &task.Creator.Login, &task.Creator.Password, &task.Creator.Picture, &task.Creator.IsAdmin,
 		&task.Asignee.Id, &task.Asignee.Login, &task.Asignee.Password, &task.Asignee.Picture, &task.Asignee.IsAdmin,
 		&task.TaskType.Id, &task.TaskType.Name,

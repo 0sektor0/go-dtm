@@ -2,6 +2,7 @@ package main
 
 import (
 	"encoding/json"
+	"errors"
 	"net/http"
 
 	"github.com/0sektor0/go-dtm/api"
@@ -24,6 +25,7 @@ const (
 	POST_TASK_ID_PARAM         = "taskId"
 	POST_LIMIT_PARAM           = "limit"
 	POST_OFFSET_PARAM          = "offset"
+	POST_TASK_UPDATE_PARAM     = "taskUpdate"
 )
 
 type NetworkHandler struct {
@@ -68,6 +70,26 @@ func (this *NetworkHandler) AuthMiddleware(next router.HandlerFunc) router.Handl
 	}
 }
 
+func (this *NetworkHandler) TaskPermisionMiddleware(next router.HandlerFunc) router.HandlerFunc {
+	return func(ctx router.IContext) {
+		taskId, err := ctx.PostParamInt(POST_TASK_ID_PARAM)
+		if err != nil {
+			err = errors.New("premisions denied")
+			SendResponse(ctx, nil, err)
+		}
+
+		session := GetSessionFromContext(ctx)
+		canEditTask := this._apiClient.Tasks.CanUserEditTask(session.User, taskId)
+		if !canEditTask {
+			err = errors.New("premisions denied")
+			SendResponse(ctx, nil, err)
+		}
+
+		ctx.AddCtxParam(POST_TASK_ID_PARAM, taskId)
+		next(ctx)
+	}
+}
+
 func (this *NetworkHandler) Authorize(ctx router.IContext) {
 	login := ctx.PostParam(POST_LOGIN_PARAM)
 	password := ctx.PostParam(POST_PASSWORD_PARAM)
@@ -84,6 +106,14 @@ func GetSessionFromContext(ctx router.IContext) *models.Session {
 
 	session := data.(*models.Session)
 	return session
+}
+
+func (this *NetworkHandler) AddUser(ctx router.IContext) {
+	login := ctx.PostParam(POST_LOGIN_PARAM)
+	password := ctx.PostParam(POST_PASSWORD_PARAM)
+
+	user, err := this._apiClient.Users.Create(login, password)
+	SendResponse(ctx, user, err)
 }
 
 func (this *NetworkHandler) LogOut(ctx router.IContext) {
@@ -104,7 +134,7 @@ func (this *NetworkHandler) AddTask(ctx router.IContext) {
 	title := ctx.PostParam(POST_TITLE_PARAM)
 	text := ctx.PostParam(POST_TEXT_PARAM)
 
-	task, err := this._apiClient.Tasks.CreateTask(creatorId, taskType, title, text)
+	task, err := this._apiClient.Tasks.Create(creatorId, taskType, title, text)
 	SendResponse(ctx, task, err)
 }
 
@@ -114,7 +144,7 @@ func (this *NetworkHandler) GetTask(ctx router.IContext) {
 		SendResponse(ctx, nil, err)
 	}
 
-	task, err := this._apiClient.Tasks.FindTaskById(id)
+	task, err := this._apiClient.Tasks.FindById(id)
 	SendResponse(ctx, task, err)
 }
 
@@ -129,70 +159,30 @@ func (this *NetworkHandler) GetTasks(ctx router.IContext) {
 		SendResponse(ctx, nil, err)
 	}
 
-	tasks, err := this._apiClient.Tasks.FindTasks(offset, limit)
+	tasks, err := this._apiClient.Tasks.GetList(offset, limit)
 	SendResponse(ctx, tasks, err)
 }
 
-// TODO
+func (this *NetworkHandler) DeleteTask(ctx router.IContext) {
+	value, _ := ctx.CtxParam(POST_TASK_ID_PARAM)
+	id := value.(int)
 
-// POST: /comment/create text=...&task_id=... => 200 [comment json]
-func (this *NetworkHandler) AddComment(ctx router.IContext) {
-
+	err := this._apiClient.Tasks.Delete(id)
+	SendResponse(ctx, nil, err)
 }
 
-// POST: /attachment/create
-func (this *NetworkHandler) AddAttachment(ctx router.IContext) {
+func (this *NetworkHandler) UpdateTask(ctx router.IContext) {
+	value, _ := ctx.CtxParam(POST_TASK_ID_PARAM)
+	id := value.(int)
 
-}
+	taskBody := []byte(ctx.PostParam(POST_TASK_UPDATE_PARAM))
+	task := &models.Task{}
 
-// POST /status/create name=... => 200 [taskStatus json]
-func (this *NetworkHandler) AddTaskStaus(ctx router.IContext) {
+	err := json.Unmarshal(taskBody, task)
+	if err != nil {
+		SendResponse(ctx, nil, err)
+	}
 
-}
-
-// POST /type/create name=... => 200 [taskType json]
-func (this *NetworkHandler) AddTaskType(ctx router.IContext) {
-
-}
-
-// POST /signup login=...&password=... => 200 [user json]
-func (this *NetworkHandler) AddUser(ctx router.IContext) {
-	login := ctx.PostParam(POST_LOGIN_PARAM)
-	password := ctx.PostParam(POST_PASSWORD_PARAM)
-
-	user, err := this._apiClient.Users.Create(login, password)
-	SendResponse(ctx, user, err)
-}
-
-// GET /user/{id}
-func (this *NetworkHandler) GetUser(ctx router.IContext) {
-
-}
-
-func (this *NetworkHandler) GetTaskStatus(ctx router.IContext) {
-
-}
-
-func (this *NetworkHandler) GetTaskType(ctx router.IContext) {
-
-}
-
-func (this *NetworkHandler) EditTask(ctx router.IContext) {
-
-}
-
-func (this *NetworkHandler) EditComment(ctx router.IContext) {
-
-}
-
-func (this *NetworkHandler) EditUser(ctx router.IContext) {
-
-}
-
-func (this *NetworkHandler) EditTaskStaus(ctx router.IContext) {
-
-}
-
-func (this *NetworkHandler) EditTasType(ctx router.IContext) {
-
+	err = this._apiClient.Tasks.ChangeTask(id, task)
+	SendResponse(ctx, nil, err)
 }
