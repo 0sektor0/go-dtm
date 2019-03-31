@@ -29,16 +29,16 @@ CREATE TABLE task_status (
 
 CREATE TABLE task (
     id serial PRIMARY KEY,
-    creator_id int,
-    asignee_id int,
-    task_type_id int NOT NULL,
-    task_status_id int,
+    creator_id int NOT NULL,
+    asignee_id int NOT NULL DEFAULT 1,
+    task_type_id int NOT NULL DEFAULT 1,
+    task_status_id int NOT NULL DEFAULT 1,
     title text NOT NULL,
     task_text text NOT NULL,
-    creation_date Date NOT NULL,
-    start_date Date NOT NULL,
-    end_date Date NOT NULL,
-    update_date Date NOT NULL,
+    creation_date int NOT NULL,
+    start_date int,
+    end_date int,
+    update_date int,
     FOREIGN KEY (creator_id) REFERENCES developer(id) ON DELETE SET NULL,
     FOREIGN KEY (asignee_id) REFERENCES developer(id) ON DELETE SET NULL,
     FOREIGN KEY (task_type_id) REFERENCES task_type(id) ON DELETE CASCADE,
@@ -55,7 +55,7 @@ CREATE TABLE attachment (
     task_id int NOT NULL,
     attachment_type_id int,
     attachment_path text NOT NULL,
-    creation_date Date NOT NULL,
+    creation_date int NOT NULL,
     FOREIGN KEY (task_id) REFERENCES task(id) ON DELETE CASCADE,
     FOREIGN KEY (attachment_type_id) REFERENCES attachment_type(id) ON DELETE SET NULL
 );
@@ -79,3 +79,11 @@ CREATE INDEX task_id_idx ON task(id);
 CREATE INDEX task_Status_id_idx ON task_status(id);
 CREATE INDEX task_type_id_idx ON task_type(id);
 CREATE INDEX developer_login_idx ON developer(login);
+
+GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO sektor;
+GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA public TO sektor;
+GRANT USAGE, UPDATE ON ALL SEQUENCES IN SCHEMA public TO sektor;
+
+INSERT INTO task_type(task_type_name) VALUES('default');
+INSERT INTO task_status(task_status_name) VALUES('default');
+INSERT INTO developer(login, password) VALUES('default', 'default');

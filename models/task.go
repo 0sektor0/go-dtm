@@ -1,18 +1,19 @@
 package models
 
 type Task struct {
-	Id           int    `json:"id"`
-	Creator      *User  `json:"creator"`
-	CreatorId    int    `json:"creatorId"`
-	Asignee      *User  `json:"asignee"`
-	AsigneeId    int    `json:"asigneeId"`
-	TaskType     *Type  `json:"type"`
-	TaskTypeId   int    `json:"taskTypeId"`
-	TaskStatus   *Type  `json:"status"`
-	TaskStatusId int    `json:"taskStatusId"`
-	Title        string `json:"title"`
-	Text         string `json:"text"`
-	CreationDate string `json:"creationDate"`
-	EndDate      string `json:"endDate"`
-	UpdateDate   string `json:"updateTime"`
+	Id           int           `json:"id"`
+	Creator      *User         `json:"creator,omitempty"`
+	Asignee      *User         `json:"asignee,omitempty"`
+	TaskType     *Type         `json:"type"`
+	TaskStatus   *Type         `json:"status"`
+	Title        string        `json:"title"`
+	Text         string        `json:"text,omitempty"`
+	CreationDate int32         `json:"creationDate"`
+	EndDate      int32         `json:"endDate"`
+	UpdateDate   int32         `json:"updateTime"`
+	Attachments  []*Attachment `json:"attachments"`
+}
+
+type Tasks struct {
+	Tasks []*Task `json:"tasks"`
 }

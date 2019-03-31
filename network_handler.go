@@ -10,10 +10,20 @@ import (
 )
 
 const (
-	CONTEXT_SESSION_KEY = "session"
-	POST_LOGIN_PARAM    = "login"
-	POST_PASSWORD_PARAM = "password"
-	POST_TOKEN_PARAM    = "token"
+	CONTEXT_SESSION_KEY        = "session"
+	POST_LOGIN_PARAM           = "login"
+	POST_PASSWORD_PARAM        = "password"
+	POST_TOKEN_PARAM           = "token"
+	POST_TEXT_PARAM            = "text"
+	POST_TITLE_PARAM           = "title"
+	POST_TASK_TYPE_ID_PARAM    = "taskTypeId"
+	POST_TASK_STATUS_ID_PARAM  = "taskStatusId"
+	POST_TASK_ASIGNEE_ID_PARAM = "taskAsigneeId"
+	POST_TASK_START_DATE_PARAM = "taskStartDate"
+	POST_TASK_END_DATE_PARAM   = "taskEndDate"
+	POST_TASK_ID_PARAM         = "taskId"
+	POST_LIMIT_PARAM           = "limit"
+	POST_OFFSET_PARAM          = "offset"
 )
 
 type NetworkHandler struct {
@@ -58,7 +68,6 @@ func (this *NetworkHandler) AuthMiddleware(next router.HandlerFunc) router.Handl
 	}
 }
 
-// POST: /auth login=...&password=... => 200 [session json]
 func (this *NetworkHandler) Authorize(ctx router.IContext) {
 	login := ctx.PostParam(POST_LOGIN_PARAM)
 	password := ctx.PostParam(POST_PASSWORD_PARAM)
@@ -83,12 +92,48 @@ func (this *NetworkHandler) LogOut(ctx router.IContext) {
 	SendResponse(ctx, "ok", err)
 }
 
-// TODO
-// POST: /task/create title=...&text=...&asignee... => 200 [task json]
 func (this *NetworkHandler) AddTask(ctx router.IContext) {
 	session := GetSessionFromContext(ctx)
-	SendResponse(ctx, session, nil)
+
+	taskType, err := ctx.PostParamInt(POST_TASK_TYPE_ID_PARAM)
+	if err != nil {
+		taskType = api.DEFAULT_TASK_TYPE
+	}
+
+	creatorId := session.User.Id
+	title := ctx.PostParam(POST_TITLE_PARAM)
+	text := ctx.PostParam(POST_TEXT_PARAM)
+
+	task, err := this._apiClient.Tasks.CreateTask(creatorId, taskType, title, text)
+	SendResponse(ctx, task, err)
 }
+
+func (this *NetworkHandler) GetTask(ctx router.IContext) {
+	id, err := ctx.PostParamInt(POST_TASK_ID_PARAM)
+	if err != nil {
+		SendResponse(ctx, nil, err)
+	}
+
+	task, err := this._apiClient.Tasks.FindTaskById(id)
+	SendResponse(ctx, task, err)
+}
+
+func (this *NetworkHandler) GetTasks(ctx router.IContext) {
+	limit, err := ctx.PostParamInt(POST_LIMIT_PARAM)
+	if err != nil {
+		SendResponse(ctx, nil, err)
+	}
+
+	offset, err := ctx.PostParamInt(POST_OFFSET_PARAM)
+	if err != nil {
+		SendResponse(ctx, nil, err)
+	}
+
+	tasks, err := this._apiClient.Tasks.FindTasks(offset, limit)
+	SendResponse(ctx, tasks, err)
+}
+
+// TODO
 
 // POST: /comment/create text=...&task_id=... => 200 [comment json]
 func (this *NetworkHandler) AddComment(ctx router.IContext) {
@@ -117,12 +162,6 @@ func (this *NetworkHandler) AddUser(ctx router.IContext) {
 
 	user, err := this._apiClient.Users.Create(login, password)
 	SendResponse(ctx, user, err)
-}
-
-// GET /task/{id} => 200 [task json]
-// GET /task/{offset}/{limit}
-func (this *NetworkHandler) GetTask(ctx router.IContext) {
-
 }
 
 // GET /user/{id}

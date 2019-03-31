@@ -1,9 +1,10 @@
 package main
 
 import (
-	"github.com/0sektor0/go-dtm/api"
 	"net/http"
 	"os"
+
+	"github.com/0sektor0/go-dtm/api"
 
 	"github.com/0sektor0/go-dtm/router"
 	"github.com/op/go-logging"
@@ -33,8 +34,10 @@ func main() {
 	apiRouter.AddHandlerPost("/signup", networkHandler.AddUser)
 	apiRouter.AddHandlerPost("/auth", networkHandler.Authorize)
 	apiRouter.AddHandlerPost("/logout", networkHandler.LogOut)
-	
+
 	apiRouter.AddHandlerPost("/task/create", networkHandler.AuthMiddleware(networkHandler.AddTask))
+	apiRouter.AddHandlerPost("/task/get", networkHandler.AuthMiddleware(networkHandler.GetTask))
+	apiRouter.AddHandlerPost("/tasks/get", networkHandler.AuthMiddleware(networkHandler.GetTasks))
 
 	settings, _ := api.GetSettings()
 	logger.Info(settings)

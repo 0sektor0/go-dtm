@@ -7,5 +7,5 @@ type Attachment struct {
 	Type         *Type  `json:"type"`
 	TypeId       int    `json:"typeId"`
 	Path         string `json:"path"`
-	CreationDate string `json:"creationDate"`
+	CreationDate int32  `json:"creationDate"`
 }

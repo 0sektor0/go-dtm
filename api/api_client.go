@@ -9,6 +9,7 @@ import (
 type ApiClient struct {
 	Users    IUserStorage
 	Sessions ISessionStorage
+	Tasks    ITaskStorage
 }
 
 func NewApiClient() (*ApiClient, error) {
@@ -29,10 +30,12 @@ func NewApiClient() (*ApiClient, error) {
 
 	users := NewUserStorage(db)
 	sessions := NewSessionStorage(users)
+	tasks := NewTaskStorage(db)
 
 	client := &ApiClient{
 		Users:    users,
 		Sessions: sessions,
+		Tasks:    tasks,
 	}
 
 	return client, nil
