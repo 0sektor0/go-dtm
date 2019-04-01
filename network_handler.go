@@ -183,6 +183,6 @@ func (this *NetworkHandler) UpdateTask(ctx router.IContext) {
 		SendResponse(ctx, nil, err)
 	}
 
-	err = this._apiClient.Tasks.ChangeTask(id, task)
+	err = this._apiClient.Tasks.Change(id, task)
 	SendResponse(ctx, nil, err)
 }

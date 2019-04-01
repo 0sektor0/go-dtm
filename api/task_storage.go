@@ -15,16 +15,18 @@ type ITaskStorage interface {
 	FindById(id int) (*models.Task, error)
 	GetList(offset int, limit int) (*models.Tasks, error)
 	Create(creatorId int, taskTypeId int, title string, text string) (*models.Task, error)
-	ChangeTask(taskId int, task *models.Task) error
+	Change(taskId int, task *models.Task) error
 	CanUserEditTask(user *models.User, taskId int) bool
 	Delete(id int) error
 }
 
 type TaskStorage struct {
-	_db *sql.DB
+	_db         *sql.DB
+	comments    ICommentStorage
+	attachments IAttachmentStorage
 }
 
-func NewTaskStorage(db *sql.DB) *TaskStorage {
+func NewTaskStorage(db *sql.DB, comments ICommentStorage, attachments IAttachmentStorage) *TaskStorage {
 	storage := &TaskStorage{
 		_db: db,
 	}
@@ -46,7 +48,7 @@ func (this *TaskStorage) FindById(id int) (*models.Task, error) {
 	WHERE t.id = $1;`,
 		id,
 	)
-
+	
 	return ScanTask(result)
 }
 
@@ -110,7 +112,7 @@ func (this *TaskStorage) Create(creatorId int, taskTypeId int, title string, tex
 	return ScanTask(result)
 }
 
-func (this *TaskStorage) ChangeTask(taskId int, task *models.Task) error {
+func (this *TaskStorage) Change(taskId int, task *models.Task) error {
 	now := time.Now().Unix()
 
 	_, err := this._db.Exec(`UPDATE task SET 

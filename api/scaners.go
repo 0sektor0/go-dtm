@@ -24,8 +24,6 @@ func ScanType(row IRow) (*models.Type, error) {
 
 func ScanTask(row IRow) (*models.Task, error) {
 	task := new(models.Task)
-	task.Attachments = make([]*models.Attachment, 0)
-	task.Comments = make([]*models.Comment, 0)
 	task.Creator = &models.User{}
 	task.Asignee = &models.User{}
 	task.TaskStatus = &models.Type{}

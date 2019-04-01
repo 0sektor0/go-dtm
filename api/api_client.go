@@ -7,9 +7,11 @@ import (
 )
 
 type ApiClient struct {
-	Users    IUserStorage
-	Sessions ISessionStorage
-	Tasks    ITaskStorage
+	Users       IUserStorage
+	Sessions    ISessionStorage
+	Tasks       ITaskStorage
+	Comments    ICommentStorage
+	Attachments IAttachmentStorage
 }
 
 func NewApiClient() (*ApiClient, error) {
@@ -30,12 +32,16 @@ func NewApiClient() (*ApiClient, error) {
 
 	users := NewUserStorage(db)
 	sessions := NewSessionStorage(users)
-	tasks := NewTaskStorage(db)
+	attachments := NewAttachmentStorage(db)
+	comments := NewCommentStorage(db)
+	tasks := NewTaskStorage(db, comments, attachments)
 
 	client := &ApiClient{
-		Users:    users,
-		Sessions: sessions,
-		Tasks:    tasks,
+		Users:       users,
+		Sessions:    sessions,
+		Tasks:       tasks,
+		Comments:    comments,
+		Attachments: attachments,
 	}
 
 	return client, nil
