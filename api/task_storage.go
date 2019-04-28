@@ -13,22 +13,29 @@ const (
 
 type ITaskStorage interface {
 	FindById(id int) (*models.Task, error)
+	
 	GetList(offset int, limit int) (*models.Tasks, error)
+	
 	Create(creatorId int, taskTypeId int, title string, text string) (*models.Task, error)
+	
 	Change(taskId int, task *models.Task) error
-	CanUserEditTask(user *models.User, taskId int) bool
+	
 	Delete(id int) error
+	
+	CheckPermision(user *models.User, id int) bool
 }
 
 type TaskStorage struct {
 	_db         *sql.DB
-	comments    ICommentStorage
-	attachments IAttachmentStorage
+	_comments    ICommentStorage
+	_attachments IAttachmentStorage
 }
 
 func NewTaskStorage(db *sql.DB, comments ICommentStorage, attachments IAttachmentStorage) *TaskStorage {
 	storage := &TaskStorage{
 		_db: db,
+		_comments: comments,
+		_attachments: attachments,	
 	}
 
 	return storage
@@ -49,7 +56,28 @@ func (this *TaskStorage) FindById(id int) (*models.Task, error) {
 		id,
 	)
 	
-	return ScanTask(result)
+	task, err := ScanTask(result);
+	if err != nil {
+		return nil, err
+	} 
+
+	err = this.GetTaskLinkedInfo(task);
+	return task, err
+}
+
+func (this *TaskStorage) GetTaskLinkedInfo(task *models.Task) error {
+	comments, err := this._comments.GetByTaskId(task.Id)
+	task.Comments = comments;
+	if err != nil {
+		return err
+	} 
+
+	task.Attachments, err = this._attachments.GetByTaskId(task.Id)
+	if err != nil {
+		return err
+	} 
+
+	return nil
 }
 
 func (this *TaskStorage) GetList(offset int, limit int) (*models.Tasks, error) {
@@ -72,20 +100,19 @@ func (this *TaskStorage) GetList(offset int, limit int) (*models.Tasks, error) {
 		return nil, err
 	}
 
-	tasks := &models.Tasks{
-		Tasks: make([]*models.Task, 0),
+	tasks, err := ScanTasks(rows) 
+	if err != nil {
+		return nil, err
 	}
 
-	for rows.Next() {
-		task, err := ScanTask(rows)
+	for _, task := range(tasks.Tasks) {
+		err = this.GetTaskLinkedInfo(task);
 		if err != nil {
 			return nil, err
 		}
-
-		tasks.Tasks = append(tasks.Tasks, task)
 	}
 
-	return tasks, err
+	return tasks, nil
 }
 
 func (this *TaskStorage) Create(creatorId int, taskTypeId int, title string, text string) (*models.Task, error) {
@@ -122,12 +149,12 @@ func (this *TaskStorage) Change(taskId int, task *models.Task) error {
 	return err
 }
 
-func (this *TaskStorage) CanUserEditTask(user *models.User, taskId int) bool {
+func (this *TaskStorage)CheckPermision(user *models.User, id int) bool {
 	if user.IsAdmin {
 		return true
 	}
 
-	_, err := this._db.Exec("SELECT id FROM task WHERE creator_id=$1 AND id=$2;", user.Id, taskId)
+	_, err := this._db.Exec("SELECT id FROM task WHERE creator_id=$1 AND id=$2;", user.Id, id)
 	if err != nil {
 		return false
 	}
@@ -136,6 +163,6 @@ func (this *TaskStorage) CanUserEditTask(user *models.User, taskId int) bool {
 }
 
 func (this *TaskStorage) Delete(id int) error {
-	_, err := this._db.Exec("DELETE task WHERE id=$1", id)
+	_, err := this._db.Exec("DELETE FROM  task WHERE id=$1", id)
 	return err
 }

@@ -1,7 +1,7 @@
 package models
 
 type Task struct {
-	Id           int           `json:"id"`
+	Id           int	       `json:"id"`
 	Creator      *User         `json:"creator,omitempty"`
 	Asignee      *User         `json:"asignee,omitempty"`
 	AsigneeId    *int          `json:"asigneeId,omitempty"`

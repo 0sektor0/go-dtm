@@ -38,7 +38,7 @@ func (this *Type) Save() error {
 }
 
 func (this *Type) Delete() error {
-	sql := fmt.Sprintf("DELETE FROM %s WHERE id = $1", this._table)
+	sql := fmt.Sprintf("DELETE FROM  %s WHERE id = $1", this._table)
 	_, err := this._db.Exec(sql, this.Id)
 
 	return err

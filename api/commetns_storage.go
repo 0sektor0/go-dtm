@@ -8,10 +8,14 @@ import (
 
 type ICommentStorage interface {
 	Add(taskId int, text string, userId int) error
+	
 	GetByTaskId(taskId int) ([]*models.Comment, error)
-	Edit(id int, comment *models.Comment) error
-	CanUserEdit(user *models.User, commentId int) bool
+	
+	Edit(id int, text string) error
+	
 	Delete(id int) error
+	
+	CheckPermision(user *models.User, id int) bool
 }
 
 type CommentStorage struct {
@@ -27,21 +31,52 @@ func NewCommentStorage(db *sql.DB) *CommentStorage {
 }
 
 func (this *CommentStorage) Add(taskId int, text string, userId int) error {
-	return nil
+	_, err := this._db.Exec(`INSERT INTO comment(developer_id, task_id, comment_text) VALUES($1, $2, $3)`,
+		userId, taskId, text)
+
+	return err
 }
 
 func (this *CommentStorage) GetByTaskId(taskId int) ([]*models.Comment, error) {
-	return nil, nil
+	rows, err := this._db.Query( `WITH task_comments AS (
+		SELECT * 
+		FROM comment
+		WHERE task_id = $1
+	)
+	
+	SELECT c.id, c.developer_id, c.comment_text, d.id, d.login, d.password, d.picture, d.is_admin
+	FROM task_comments AS c
+	JOIN developer AS d ON c.developer_id = d.id 
+	`,
+	taskId,
+	)
+	
+	if err != nil {
+		return nil, err
+	}
+
+	return ScanComments(rows)
 }
 
-func (this *CommentStorage) Edit(id int, comment *models.Comment) error {
-	return nil
+func (this *CommentStorage) Edit(id int, text string) error {
+	_, err := this._db.Exec(`UPDATE comment SET comment_text=$1`, text)
+	return err
 }
 
-func (this *CommentStorage) CanUserEdit(user *models.User, commentId int) bool {
-	return false
+func (this *CommentStorage) CheckPermision(user *models.User, id int) bool {
+	if user.IsAdmin {
+		return true
+	}
+
+	_, err := this._db.Exec("SELECT id FROM comment WHERE developer_id=$1 AND id=$2;", user.Id, id)
+	if err != nil {
+		return false
+	}
+
+	return true
 }
 
 func (this *CommentStorage) Delete(id int) error {
-	return nil
+	_, err := this._db.Exec("DELETE FROM comment WHERE id=$1", id)
+	return err
 }
