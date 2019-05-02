@@ -40,6 +40,9 @@ func main() {
 	apiRouter.AddHandlerPost("/tasks/create", nh.AuthMiddleware(nh.AddTask))
 	apiRouter.AddHandlerPost("/tasks/update", nh.AuthMiddleware(nh.TasksPermisionMiddleware(nh.UpdateTask)))
 	apiRouter.AddHandlerPost("/tasks/delete", nh.AuthMiddleware(nh.TasksPermisionMiddleware(nh.DeleteTask)))
+
+	apiRouter.AddHandlerPost("/user/get", nh.AuthMiddleware(nh.GetUser))
+	apiRouter.AddHandlerPost("/users/get", nh.AuthMiddleware(nh.GetUsers))
 	
 	apiRouter.AddHandlerPost("/comments/add", nh.AuthMiddleware(nh.AddComment))
 	apiRouter.AddHandlerPost("/comments/update", nh.AuthMiddleware(nh.CommentsPermisionMiddleware(nh.UpdateComment)))
@@ -48,7 +51,9 @@ func main() {
 	apiRouter.AddHandlerPost("/attachments/update", nh.AuthMiddleware(nh.TasksPermisionMiddleware(nh.AddAttachment)))
 	apiRouter.AddHandlerPost("/attachments/delete", nh.AuthMiddleware(nh.TasksPermisionMiddleware(nh.DeleteAttachment)))
 	
-	apiRouter.AddHandlerPost("/statuses/get", nh.AuthMiddleware(nh.DeleteComment))
+	apiRouter.AddHandlerPost("/statuses/get", nh.AuthMiddleware(nh.GetTasksStatuses))
+	apiRouter.AddHandlerPost("/statuses/delete", nh.AuthMiddleware(nh.DeleteTasksStatuses))
+	apiRouter.AddHandlerPost("/statuses/update", nh.AuthMiddleware(nh.UpdateTaskStatuses))
 
 	settings, _ := api.GetSettings()
 	logger.Info(settings)

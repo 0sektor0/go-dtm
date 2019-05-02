@@ -72,6 +72,7 @@ func (this *NetworkHandler) AuthMiddleware(next router.HandlerFunc) router.Handl
 
 		if err != nil {
 			SendResponse(ctx, nil, err)
+			return;
 		}
 
 		ctx.AddCtxParam(CONTEXT_SESSION_KEY, session)
@@ -83,6 +84,7 @@ func (this *NetworkHandler) PermisionMiddleware(next router.HandlerFunc, idKey s
 	return func(ctx router.IContext) {
 		id, err := ctx.PostParamInt(idKey)
 		if err != nil {
+			ctx.Logger().Error(errors.New("cant find idkey"))
 			SendErrorResponse(ctx, ERROR_TEXT_PERMISION)
 			return
 		}
@@ -90,6 +92,7 @@ func (this *NetworkHandler) PermisionMiddleware(next router.HandlerFunc, idKey s
 		session := GetSessionFromContext(ctx)
 		canEditTask := checker.CheckPermision(session.User, id)
 		if !canEditTask {
+			ctx.Logger().Error(errors.New("cant check permission"))
 			SendErrorResponse(ctx, ERROR_TEXT_PERMISION)
 			return
 		}
@@ -185,6 +188,45 @@ func (this *NetworkHandler) GetTasks(ctx router.IContext) {
 
 	tasks, err := this._apiClient.Tasks.GetList(offset, limit)
 	SendResponse(ctx, tasks, err)
+}
+
+func (this *NetworkHandler) GetUser(ctx router.IContext) {
+	id, err := ctx.PostParamInt(POST_ID_PARAM)
+	if err != nil {
+		SendResponse(ctx, nil, err)
+		return
+	}
+
+	login := ctx.PostParam(POST_LOGIN_PARAM)
+	if err != nil {
+		SendResponse(ctx, nil, err)
+		return
+	}
+
+	if login == "" {
+		user, err := this._apiClient.Users.FindById(id)
+		SendResponse(ctx, user, err)
+	} else {
+		user, err := this._apiClient.Users.FindByLogin(login)
+		SendResponse(ctx, user, err)
+	}
+}
+
+func (this *NetworkHandler) GetUsers(ctx router.IContext) {
+	limit, err := ctx.PostParamInt(POST_LIMIT_PARAM)
+	if err != nil {
+		SendResponse(ctx, nil, err)
+		return
+	}
+
+	offset, err := ctx.PostParamInt(POST_OFFSET_PARAM)
+	if err != nil {
+		SendResponse(ctx, nil, err)
+		return
+	}
+
+	users, err := this._apiClient.Users.GetList(offset, limit)
+	SendResponse(ctx, users, err)
 }
 
 func (this *NetworkHandler) DeleteTask(ctx router.IContext) {

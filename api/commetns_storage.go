@@ -68,8 +68,9 @@ func (this *CommentStorage) CheckPermision(user *models.User, id int) bool {
 		return true
 	}
 
-	_, err := this._db.Exec("SELECT id FROM comment WHERE developer_id=$1 AND id=$2;", user.Id, id)
-	if err != nil {
+	result := this._db.QueryRow("SELECT COUNT(id) FROM comment WHERE developer_id=$1 AND id=$2;", user.Id, id)
+	count, err := ScanCount(result)
+	if err != nil || count == 0 {
 		return false
 	}
 

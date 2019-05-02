@@ -16,6 +16,23 @@ func ScanUser(row IRow) (*models.User, error) {
 	return user, err
 }
 
+func ScanUsers(rows *sql.Rows) (*models.Users, error) {
+	users := &models.Users{
+		Users: make([]*models.User, 0),
+	}
+
+	for rows.Next() {
+		user, err := ScanUser(rows)
+		if err != nil {
+			return nil, err
+		}
+
+		users.Users = append(users.Users, user)
+	}
+
+	return users, nil
+}
+
 func ScanTask(row IRow) (*models.Task, error) {
 	task := new(models.Task)
 	task.Creator = &models.User{}
@@ -77,8 +94,14 @@ func ScanComments(rows *sql.Rows) ([]*models.Comment, error) {
 
 func ScanAttachment(row IRow) (*models.Attachment, error) {
 	attachment := &models.Attachment{}
-	err := row.Scan(&attachment.Path, attachment.CreationDate)
+	err := row.Scan(&attachment.Path, &attachment.CreationDate)
 	return attachment, err
+}
+
+func ScanCount(row IRow) (int, error) {
+	count := 0
+	err := row.Scan(&count)
+	return count, err
 }
 
 func ScanAttachments(rows *sql.Rows) ([]*models.Attachment, error) {

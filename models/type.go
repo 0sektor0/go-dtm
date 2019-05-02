@@ -43,3 +43,7 @@ func (this *Type) Delete() error {
 
 	return err
 }
+
+type Types struct {
+	Types []*Type `json:"types"`
+}
