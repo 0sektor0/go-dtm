@@ -14,7 +14,7 @@ const (
 )
 
 type ITypeStorage interface {
-	GetTypes() []*models.Type
+	GetTypes() *models.Types
 	GetType(id int) (*models.Type, bool)
 	Update(id int, name string) error
 	Create(name string) error
@@ -64,8 +64,12 @@ func (this *TypeStorage) LoadDataToCache() {
 	}
 }
 
-func (this *TypeStorage) GetTypes() []*models.Type {
-	return this._types
+func (this *TypeStorage) GetTypes() *models.Types {
+	types := &models.Types {
+		Types: this._types,
+	}
+	
+	return types
 }
 
 func (this *TypeStorage) GetType(id int) (*models.Type, bool) {

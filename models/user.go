@@ -7,3 +7,7 @@ type User struct {
 	IsAdmin  bool   `json:"isAdmin"`
 	Password string `json:"-"`
 }
+
+type Users struct {
+	Users []*User `json:"users"`
+}

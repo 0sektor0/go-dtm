@@ -143,8 +143,8 @@ func (this *TaskStorage) Change(taskId int, task *models.Task) error {
 	now := time.Now().Unix()
 
 	_, err := this._db.Exec(`UPDATE task SET 
-	task_status_id=$1 task_type_id=$2 asignee_id=$3 task_text=$4 title=$5 start_date=$6 end_date=$7 update_date=$8`,
-		task.TaskStatusId, task.TaskTypeId, task.AsigneeId, task.Text, task.Title, task.StartDate, task.EndDate, now)
+	task_status_id=$1, task_type_id=$2, asignee_id=$3, task_text=$4, title=$5, start_date=$6, end_date=$7, update_date=$8`,
+		task.TaskStatus.Id, task.TaskType.Id, task.Asignee.Id, task.Text, task.Title, task.StartDate, task.EndDate, now)
 
 	return err
 }
@@ -154,8 +154,9 @@ func (this *TaskStorage)CheckPermision(user *models.User, id int) bool {
 		return true
 	}
 
-	_, err := this._db.Exec("SELECT id FROM task WHERE creator_id=$1 AND id=$2;", user.Id, id)
-	if err != nil {
+	result := this._db.QueryRow("SELECT COUNT(id) FROM task WHERE creator_id=$1 AND id=$2;", user.Id, id)
+	count, err := ScanCount(result)
+	if err != nil || count == 0 {
 		return false
 	}
 

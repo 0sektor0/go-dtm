@@ -16,6 +16,8 @@ type IUserStorage interface {
 	FindByLogin(login string) (*models.User, error) 
 
 	FindById(id int) (*models.User, error) 
+	
+	GetList(offset int, limit int) (*models.Users, error)
 
 	Subscribe(handler UserUpdateDelegate)
 }
@@ -46,6 +48,25 @@ func (this *UserStorage) Create(login string, password string) (*models.User, er
 
 func (this *UserStorage) Delete(id int) error {
 	return nil
+}
+
+func (this *UserStorage) GetList(offset int, limit int) (*models.Users, error) {
+	rows, err := this._db.Query(`SELECT id, login, password, picture, is_admin FROM developer
+	OFFSET $1
+	LIMIT $2;`,
+		offset, limit,
+	)
+
+	if err != nil {
+		return nil, err
+	}
+
+	users, err := ScanUsers(rows) 
+	if err != nil {
+		return nil, err
+	}
+
+	return users, nil
 }
 
 func (this *UserStorage) FindByLogin(login string) (*models.User, error) {
