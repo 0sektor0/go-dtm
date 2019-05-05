@@ -13,7 +13,9 @@ namespace GoDtmUI.ViewModels
         public TasksFilter Filter { get; } = new TasksFilter();
         public Client Client { get; } = new Client("http://194.87.144.249:8080");
         public ObservableCollection<Task> Tasks { get; } = new ObservableCollection<Task>();
+        public ObservableCollection<Status> TaskTypes { get; } = new ObservableCollection<Status>();
 
+        private Task _openedTask;
         private bool _isAuthorized;
         private string _password;
         private string _login;
@@ -42,8 +44,17 @@ namespace GoDtmUI.ViewModels
             get => _error; 
             set => this.RaiseAndSetIfChanged(ref _error, value); 
         }
-        
-        
+
+        public Task OpenedTask
+        {
+            get => _openedTask; 
+            set => this.RaiseAndSetIfChanged(ref _openedTask, value); 
+        }
+
+        public int TaskId { get; set; }
+
+        public string CommentText { get; set; }
+
 
         public MainWindowViewModel()
         {
@@ -52,15 +63,29 @@ namespace GoDtmUI.ViewModels
             Client.OnAuthSuccess += () => { IsAuthorized = true; };
         }
 
-        public void OpenTaskInfo(int id)
+        private void GetStatuses()
         {
-            var a = "";
+            var types = Client.GetTypes();
+            
+            if (types != null)
+            {
+                TaskTypes.Clear();
+                TaskTypes.AddRange(types.Statuses);
+            }
+        }
+
+        public void OpenTaskInfo()
+        {
+            OpenedTask = Client.GetTask(TaskId);
         }
 
         public void SignIn()
         {
-            if(Client.Auth(Login, Password))
+            if (Client.Auth(Login, Password))
+            {
                 GetTasks();
+                GetStatuses();
+            }
         }
 
         public void GetTasks()
@@ -72,6 +97,14 @@ namespace GoDtmUI.ViewModels
                 Tasks.Clear();
                 Tasks.AddRange(tasksInfo.Tasks);
             }
+        }
+        
+        public void AddComment()
+        {
+            if (OpenedTask == null) return;
+
+            Client.CreateComment(OpenedTask.Id, CommentText);
+            OpenedTask = Client.GetTask(OpenedTask.Id);
         }
     }
 }
