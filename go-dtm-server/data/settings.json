@@ -1,0 +1,5 @@
+{
+    "ConnectionString": "user=sektor password=EGE_030697-ta dbname=go_dtm host=194.87.144.249 sslmode=disable",
+    "Connector": "postgres",
+    "Port": ":8080"
+}
