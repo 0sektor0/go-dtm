@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\projects\go-dtm\go-dtm-client" t="IncludeFlat">
+      <e p="GoDtmUI" t="IncludeRecursive">
+        <e p=".gitignore" t="Include" />
+        <e p="Api" t="Include">
+          <e p="AuthException.cs" t="Include" />
+          <e p="Client.cs" t="Include" />
+          <e p="Utils.cs" t="Include" />
+        </e>
+        <e p="App.xaml" t="Include" />
+        <e p="App.xaml.cs" t="Include" />
+        <e p="Assets" t="Include">
+          <e p="avalonia-logo.ico" t="Include" />
+        </e>
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="GoDtmUI.csproj" t="IncludeRecursive" />
+        <e p="Models" t="Include">
+          <e p="Attachment.cs" t="Include" />
+          <e p="Comment.cs" t="Include" />
+          <e p="Converter.cs" t="Include" />
+          <e p="Session.cs" t="Include" />
+          <e p="Status.cs" t="Include" />
+          <e p="Task.cs" t="Include" />
+          <e p="TasksFilter.cs" t="Include" />
+          <e p="TasksInfo.cs" t="Include" />
+          <e p="TypesInfo.cs" t="Include" />
+          <e p="User.cs" t="Include" />
+          <e p="UsersInfo.cs" t="Include" />
+        </e>
+        <e p="nuget.config" t="Include" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp2.2" t="Include">
+              <e p="GoDtmUI.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Program.cs" t="Include" />
+        <e p="ViewLocator.cs" t="Include" />
+        <e p="ViewModels" t="Include">
+          <e p="MainWindowViewModel.cs" t="Include" />
+          <e p="ViewModelBase.cs" t="Include" />
+        </e>
+        <e p="Views" t="Include">
+          <e p="MainWindow.xaml" t="Include" />
+          <e p="MainWindow.xaml.cs" t="Include" />
+        </e>
+      </e>
+      <e p="GoDtmUi.sln" t="IncludeFlat" />
+      <e p="packages" t="ExcludeRecursive" />
+    </e>
+    <e p="C:\Users\Sekougi\.Rider2018.3\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\Sekougi\.Rider2018.3\system\resharper-host\local\Transient\ReSharperHost\v183\SolutionCaches\_GoDtmUi.451103456.00" t="ExcludeRecursive" />
+  </component>
+</project>
