@@ -1,0 +1,104 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:views="clr-namespace:AvaloniaAppTemplate.Namespace"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="clr-namespace:GoDtmUI.ViewModels;assembly=GoDtmUI"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="GoDtmUI.Views.MainWindow"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="GoDtmUI">
+    
+        <Window.Styles>
+            <Style Selector="TextBlock.ListItem">
+                <Setter Property="Margin" Value="4"/>
+                <Setter Property="Width" Value="200"/>
+                <Setter Property="HorizontalAlignment" Value="Left"/>
+            </Style>
+            <Style Selector="TextBox.ListItem">
+                <Setter Property="Margin" Value="4"/>
+                <Setter Property="Width" Value="200"/>
+                <Setter Property="HorizontalAlignment" Value="Left"/>
+            </Style>
+        </Window.Styles>
+        
+        <Design.DataContext>
+            <vm:MainWindowViewModel/>
+        </Design.DataContext>
+
+        <ScrollViewer>
+            <StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock Classes="ListItem">Login</TextBlock>
+                        <TextBox Classes="ListItem" Text="{Binding Login}"/>
+                    </StackPanel>
+                
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock Classes="ListItem">Password</TextBlock>
+                        <TextBox Classes="ListItem" Text="{Binding Password}"/>
+                    </StackPanel>
+                
+                    <Button Width="60" Margin="4" Command="{Binding SignIn}" IsVisible="{Binding !IsAuthorized}">LogIn</Button>
+                    <Button Width="60" Margin="4" Command="{Binding OpenTaskInfo}" 
+                            CommandParameter="11">Open</Button>
+                </StackPanel>
+                
+                <StackPanel IsVisible="{Binding IsAuthorized}">
+                    <Button Width="60" Margin="4" Command="{Binding GetTasks}">Find</Button>
+                    
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock Classes="ListItem">Offset</TextBlock>
+                        <TextBox Classes="ListItem" Text="{Binding Filter.Offset}"/>
+                    </StackPanel>
+            
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock Classes="ListItem">Limit</TextBlock>
+                        <TextBox Classes="ListItem" Text="{Binding Filter.Limit}"/>
+                    </StackPanel>
+            
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock Classes="ListItem">Asignee name</TextBlock>
+                        <TextBox Classes="ListItem" Text="{Binding Filter.AsigneeName}"/>
+                    </StackPanel>
+            
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock Classes="ListItem">Creator Name</TextBlock>
+                        <TextBox Classes="ListItem" Text="{Binding Filter.CreatorName}"/>
+                    </StackPanel>
+            
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock Classes="ListItem">Status</TextBlock>
+                        <TextBox Classes="ListItem" Text="{Binding Filter.StatusName}"/>
+                    </StackPanel>
+            
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock Classes="ListItem">End date</TextBlock>
+                        <TextBox Classes="ListItem" Text="{Binding Filter.EndDate}"/>
+                    </StackPanel>
+            
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock Classes="ListItem">Start date</TextBlock>
+                        <TextBox Classes="ListItem" Text="{Binding Filter.StartDate}"/>
+                    </StackPanel>
+          
+                    <ItemsControl Items="{Binding Tasks}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Margin="4" Text="{Binding Id}"/>
+                                    <TextBlock Margin="4" Text="{Binding Title}"/>
+                                    <TextBlock Margin="4" Text="{Binding Asignee.Login}"/>
+                                    <TextBlock Margin="4" Text="{Binding Creator.Login}"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </StackPanel>
+                
+                <TextBlock Text="{Binding Error}"/>
+      
+            </StackPanel>
+        </ScrollViewer>
+
+</Window>
