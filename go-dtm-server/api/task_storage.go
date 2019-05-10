@@ -4,7 +4,7 @@ import (
 	"database/sql"
 	"time"
 
-	"github.com/0sektor0/go-dtm/models"
+	"github.com/0sektor0/go-dtm/go-dtm-server/models"
 )
 
 const (
@@ -91,6 +91,7 @@ func (this *TaskStorage) GetList(offset int, limit int) (*models.Tasks, error) {
 	JOIN developer AS s ON t.asignee_id = s.id
 	JOIN task_type AS tt ON t.task_type_id = tt.id
 	JOIN task_status AS ts ON t.task_status_id = ts.id
+	ORDER BY t.id
 	OFFSET $1
 	LIMIT $2;`,
 		offset, limit,
@@ -143,8 +144,8 @@ func (this *TaskStorage) Change(taskId int, task *models.Task) error {
 	now := time.Now().Unix()
 
 	_, err := this._db.Exec(`UPDATE task SET 
-	task_status_id=$1, task_type_id=$2, asignee_id=$3, task_text=$4, title=$5, start_date=$6, end_date=$7, update_date=$8`,
-		task.TaskStatus.Id, task.TaskType.Id, task.Asignee.Id, task.Text, task.Title, task.StartDate, task.EndDate, now)
+	task_status_id=$1, task_type_id=$2, asignee_id=$3, task_text=$4, title=$5, start_date=$6, end_date=$7, update_date=$8 WHERE id = $9`,
+		task.TaskStatus.Id, task.TaskType.Id, task.Asignee.Id, task.Text, task.Title, task.StartDate, task.EndDate, now, taskId)
 
 	return err
 }

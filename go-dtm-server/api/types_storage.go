@@ -1,7 +1,7 @@
 package api
 
 import (
-	"github.com/0sektor0/go-dtm/models"
+	"github.com/0sektor0/go-dtm/go-dtm-server/models"
 	"database/sql"
 	"errors"
 	"fmt"
