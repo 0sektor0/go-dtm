@@ -31,8 +31,19 @@ namespace GoDtmUI.Api
         {
             var request = new HttpRequestMessage(HttpMethod.Post, $"{_host}/{apiMethod}");
             request.Content = new StringContent(content, Encoding.UTF8, "application/x-www-form-urlencoded");
+
+            HttpResponseMessage response;
+            try
+            {
+                response = _http.SendAsync(request).Result;
+            }
+            catch (Exception e)
+            {
+                LogOut();
+                OnApiError?.Invoke(e.Message);
+                return null;
+            }
             
-            var response = _http.SendAsync(request).Result;
             var responseBody = response.Content.ReadAsStringAsync().Result;
 
             if (response.StatusCode != HttpStatusCode.OK)

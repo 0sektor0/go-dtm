@@ -1,0 +1,31 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="AvaloniaAppTemplate.Namespace.LogInView">
+  
+    <DockPanel>
+        <!-- Login panel -->
+        <StackPanel Orientation="Horizontal">
+            <StackPanel Orientation="Vertical">
+                <TextBlock Classes="ListItem">Login</TextBlock>
+                <TextBox Classes="ListItem" Text="{Binding Login}"/>
+            </StackPanel>
+                
+            <StackPanel Orientation="Vertical">
+                <TextBlock Classes="ListItem">Password</TextBlock>
+                <TextBox Classes="ListItem" Text="{Binding Password}"/>
+            </StackPanel>
+                
+            <StackPanel Orientation="Vertical">
+                <TextBlock Classes="ListItem">Server</TextBlock>
+                <TextBox Classes="ListItem" Text="{Binding Server}"/>
+            </StackPanel>
+                
+            <Button Width="60" Margin="4" Command="{Binding SignIn}" IsVisible="{Binding !IsAuthorized}">Sign In</Button>
+            <Button Width="60" Margin="4" Command="{Binding LogOut}" IsVisible="{Binding IsAuthorized}">Log Out</Button>
+        </StackPanel>
+    </DockPanel>
+    
+</UserControl>

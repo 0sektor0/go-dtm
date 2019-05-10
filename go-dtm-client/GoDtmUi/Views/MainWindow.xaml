@@ -14,6 +14,11 @@
         <Window.Styles>
             <Style Selector="TextBlock.TableItem">
                 <Setter Property="Margin" Value="4"/>
+                <Setter Property="MinWidth" Value="100"/>
+                <Setter Property="HorizontalAlignment" Value="Left"/>
+            </Style>
+            <Style Selector="TextBox.TableItem">
+                <Setter Property="Margin" Value="4"/>
                 <Setter Property="Width" Value="100"/>
                 <Setter Property="HorizontalAlignment" Value="Left"/>
             </Style>
@@ -27,6 +32,14 @@
                 <Setter Property="Width" Value="200"/>
                 <Setter Property="HorizontalAlignment" Value="Left"/>
             </Style>
+            <Style Selector="TextBox.TextInput">
+                <Setter Property="Height" Value="200"/>
+                <Setter Property="Width" Value="600"/>
+            </Style>
+            <Style Selector="TextBlock.Separator">
+                <Setter Property="Height" Value="50"/>
+                <Setter Property="Width" Value="150"/>
+            </Style>
         </Window.Styles>
         
         <Design.DataContext>
@@ -38,206 +51,37 @@
         <ScrollViewer>
             <StackPanel HorizontalAlignment="Center">
                 
-                
-                
-                <!-- Login panel -->
-                <StackPanel Orientation="Horizontal">
-                    <StackPanel Orientation="Vertical">
-                        <TextBlock Classes="ListItem">Login</TextBlock>
-                        <TextBox Classes="ListItem" Text="{Binding Login}"/>
-                    </StackPanel>
-                
-                    <StackPanel Orientation="Vertical">
-                        <TextBlock Classes="ListItem">Password</TextBlock>
-                        <TextBox Classes="ListItem" Text="{Binding Password}"/>
-                    </StackPanel>
-                
-                    <Button Width="60" Margin="4" Command="{Binding SignIn}" IsVisible="{Binding !IsAuthorized}">LogIn</Button>
-                </StackPanel>
-                
-                
+                <views:LogInView/>
+                <TextBlock Classes="Separator"/>
                 
                 <!-- Tasks panel  -->
-                <StackPanel IsVisible="{Binding IsAuthorized}">
-                    
-                    <!--  Task filter -->
-                    <StackPanel Orientation="Horizontal">                    
-                        <StackPanel>
-                            <StackPanel Orientation="Vertical">
-                                <TextBlock Classes="ListItem">Offset</TextBlock>
-                                <TextBox Classes="ListItem" Text="{Binding Filter.Offset}"/>
-                            </StackPanel>
-                    
-                            <StackPanel Orientation="Vertical">
-                                <TextBlock Classes="ListItem">Limit</TextBlock>
-                                <TextBox Classes="ListItem" Text="{Binding Filter.Limit}"/>
-                            </StackPanel>
-                        </StackPanel>
-                        
-                        <StackPanel>
-                            <StackPanel Orientation="Vertical">
-                                <TextBlock Classes="ListItem">Asignee name</TextBlock>
-                                <TextBox Classes="ListItem" Text="{Binding Filter.AsigneeName}"/>
-                            </StackPanel>
-                    
-                            <StackPanel Orientation="Vertical">
-                                <TextBlock Classes="ListItem">Creator Name</TextBlock>
-                                <TextBox Classes="ListItem" Text="{Binding Filter.CreatorName}"/>
-                            </StackPanel>
-                        </StackPanel>
-    
-                        <StackPanel>
-                            <StackPanel Orientation="Vertical">
-                                <TextBlock Classes="ListItem">Status</TextBlock>
-                                <TextBox Classes="ListItem" Text="{Binding Filter.StatusName}"/>
-                            </StackPanel>
-                    
-                            <StackPanel Orientation="Vertical">
-                                <TextBlock Classes="ListItem">End date</TextBlock>
-                                <TextBox Classes="ListItem" Text="{Binding Filter.EndDate}"/>
-                            </StackPanel>
-                        </StackPanel>
-    
-                        <StackPanel>
-                            <StackPanel Orientation="Vertical">
-                                <TextBlock Classes="ListItem">Start date</TextBlock>
-                                <TextBox Classes="ListItem" Text="{Binding Filter.StartDate}"/>
-                            </StackPanel>
-                            <Button Width="120" Height="60" Margin="4" Command="{Binding GetTasks}">Find</Button>
-                        </StackPanel>
-                    </StackPanel>
-                    
-                    
-              
-                    <!-- Tasks list -->
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Classes="TableItem" Text="Id"/>
-                        <TextBlock Classes="TableItem" Text="Title"/>
-                        <TextBlock Classes="TableItem" Text="Asignee"/>
-                        <TextBlock Classes="TableItem" Text="Creator"/>
-                        <TextBlock Classes="TableItem" Text="Start date"/>
-                        <TextBlock Classes="TableItem" Text="End date"/>
-                        <TextBlock Classes="TableItem" Text="Comments"/>
-                    </StackPanel>
-                    
-                    <ItemsControl Items="{Binding Tasks}">
-                        <ItemsControl.ItemTemplate>
-                            <DataTemplate>
-                                <StackPanel Orientation="Horizontal">
-                                    <TextBlock Classes="TableItem" Text="{Binding Id}"/>
-                                    <TextBlock Classes="TableItem" Text="{Binding Title}"/>
-                                    <TextBlock Classes="TableItem" Text="{Binding Asignee.Login}"/>
-                                    <TextBlock Classes="TableItem" Text="{Binding Creator.Login}"/>
-                                    <TextBlock Classes="TableItem" Text="{Binding StartDate}"/>
-                                    <TextBlock Classes="TableItem" Text="{Binding EndDate}"/>
-                                    <TextBlock Classes="TableItem" Text="{Binding Comments.Length}"/>
-                                </StackPanel>
-                            </DataTemplate>
-                        </ItemsControl.ItemTemplate>
-                    </ItemsControl>
-                    
-                    
-                    
-                    <!--  Task search -->
+                <StackPanel Orientation="Horizontal" IsVisible="{Binding IsAuthorized}">
                     <StackPanel>
-                        <StackPanel Orientation="Horizontal">
-                            <StackPanel Orientation="Vertical">
-                                <TextBlock Classes="ListItem">Task Id</TextBlock>
-                                <TextBox Classes="ListItem" Text="{Binding TaskId}"/>
-                            </StackPanel>
-                            <Button Width="60" Margin="4" Command="{Binding OpenTaskInfo}">Open</Button>
-                        </StackPanel>
-                        
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Classes="TableItem" Text="Id"/>
-                            <TextBlock Classes="TableItem" Text="Title"/>
-                            <TextBlock Classes="TableItem" Text="Asignee"/>
-                            <TextBlock Classes="TableItem" Text="Creator"/>
-                            <TextBlock Classes="TableItem" Text="Start date"/>
-                            <TextBlock Classes="TableItem" Text="End date"/>
-                            <TextBlock Classes="TableItem" Text="Creation date"/>
-                            <TextBlock Classes="TableItem" Text="Update time"/>
-                        </StackPanel>
-                        
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Classes="TableItem" Text="{Binding OpenedTask.Id}"/>
-                            <TextBlock Classes="TableItem" Text="{Binding OpenedTask.Title}"/>
-                            <TextBlock Classes="TableItem" Text="{Binding OpenedTask.Asignee.Login}"/>
-                            <TextBlock Classes="TableItem" Text="{Binding OpenedTask.Creator.Login}"/>
-                            <TextBlock Classes="TableItem" Text="{Binding OpenedTask.StartDate}"/>
-                            <TextBlock Classes="TableItem" Text="{Binding OpenedTask.EndDate}"/>
-                            <TextBlock Classes="TableItem" Text="{Binding OpenedTask.CreationDate}"/>
-                            <TextBlock Classes="TableItem" Text="{Binding OpenedTask.UpdDateTime}"/>
-                        </StackPanel>
-                        
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Classes="TableItem" Text="Status: "/>
-                            <TextBlock Classes="TableItem" Text="{Binding OpenedTask.Status.Name}"/>
-                        </StackPanel>
-                        
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Classes="TableItem" Text="Type: "/>
-                            <TextBlock Classes="TableItem" Text="{Binding OpenedTask.Type.Name}"/>
-                        </StackPanel>
-                        
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Classes="TableItem" Text="Task text: "/>
-                            <TextBlock Classes="TableItem" Text="{Binding OpenedTask.Text}"/>
-                        </StackPanel>
-                        
-                        <TextBlock Text="Comments"/>
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Classes="TableItem" Text="Id"/>
-                            <TextBlock Classes="TableItem" Text="Developer"/>
-                            <TextBlock Classes="TableItem" Text="Text"/>
-                        </StackPanel>
-                        <ItemsControl Items="{Binding OpenedTask.Comments}">
-                            <ItemsControl.ItemTemplate>
-                                <DataTemplate>
-                                    <StackPanel Orientation="Horizontal">
-                                        <TextBlock Classes="TableItem" Text="{Binding Id}"/>
-                                        <TextBlock Classes="TableItem" Text="{Binding Developer.Login}"/>
-                                        <TextBlock Classes="TableItem" Text="{Binding Text}"/>
-                                    </StackPanel>
-                                </DataTemplate>
-                            </ItemsControl.ItemTemplate>
-                        </ItemsControl>
-                        
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Classes="TableItem" Text="Enter comment"/>
-                            <TextBox Width="600" Height="200" Text="{Binding CommentText}"/>
-                            <Button Width="60" Height="60" Margin="4" Command="{Binding AddComment}">Add Comment</Button>
-                        </StackPanel>
+                        <views:TaskStatusesListView/>
+                        <TextBlock Classes="Separator"/>
+                        <views:UsersListView/>
                     </StackPanel>
-                
                     
-                
-                    <!-- Add Task -->
-                    <StackPanel Orientation="Horizontal">
-                        <StackPanel>
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock Classes="TableItem" Text="Id"/>
-                                <TextBlock Classes="TableItem" Text="Name"/>
-                            </StackPanel>
+                    <TextBlock Classes="Separator"/>
+                    
+                    <StackPanel>
+                        <views:TaskFilterView/>
+                        <TextBlock Classes="Separator"/>
                         
-                            <ItemsControl Items="{Binding TaskTypes}">
-                                <ItemsControl.ItemTemplate>
-                                    <DataTemplate>
-                                        <StackPanel Orientation="Horizontal">
-                                            <TextBlock Classes="TableItem" Text="{Binding Id}"/>
-                                            <TextBlock Classes="TableItem" Text="{Binding Name}"/>
-                                        </StackPanel>
-                                    </DataTemplate>
-                                </ItemsControl.ItemTemplate>
-                            </ItemsControl>
-                        </StackPanel>
-                    </StackPanel>    
+                        <views:TaskListView/>
+                        <TextBlock Classes="Separator"/>
+                        
+                        <views:TaskSearchView/>
+                        <TextBlock Classes="Separator"/>
+                    </StackPanel>
                 </StackPanel>
-                
-                
+                        
+                <views:TaskCreationView  IsVisible="{Binding IsAuthorized}"/>
+                <TextBlock Classes="Separator"/>
                 
                 <!-- Logs -->
                 <TextBlock Text="{Binding Error}"/>
             </StackPanel>
         </ScrollViewer>
+    
 </Window>

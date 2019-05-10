@@ -1,0 +1,47 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="AvaloniaAppTemplate.Namespace.TaskListView">
+    
+    <DockPanel>
+        <StackPanel>
+            <!-- Tasks list -->
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Height="20">Task to delete id</TextBlock>
+                <TextBox Classes="TableItem" Text="{Binding TaskToDeleteId}"/>
+                <Button Width="120" Height="60" Margin="4" Command="{Binding DeleteTask}">Delete</Button>
+            </StackPanel>
+            
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Classes="TableItem" Text="Id"/>
+                <TextBlock Classes="TableItem" Text="Title"/>
+                <TextBlock Classes="TableItem" Text="Asignee"/>
+                <TextBlock Classes="TableItem" Text="Creator"/>
+                <TextBlock Classes="TableItem" Text="Start date"/>
+                <TextBlock Classes="TableItem" Text="End date"/>
+                <TextBlock Classes="TableItem" Text="Status"/>
+                <TextBlock Classes="TableItem" Text="Comments"/>
+            </StackPanel>
+                        
+            <ItemsControl Items="{Binding Tasks}">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Classes="TableItem" Text="{Binding Id}"/>
+                            <TextBlock Classes="TableItem" Text="{Binding Title}"/>
+                            <TextBlock Classes="TableItem" Text="{Binding Asignee.Login}"/>
+                            <TextBlock Classes="TableItem" Text="{Binding Creator.Login}"/>
+                            <TextBlock Classes="TableItem" Text="{Binding StartDate}"/>
+                            <TextBlock Classes="TableItem" Text="{Binding EndDate}"/>
+                            <TextBlock Classes="TableItem" Text="{Binding Status.Name}"/>
+                            <TextBlock Classes="TableItem" Text="{Binding Comments.Length}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </StackPanel>
+    </DockPanel>
+    
+</UserControl>

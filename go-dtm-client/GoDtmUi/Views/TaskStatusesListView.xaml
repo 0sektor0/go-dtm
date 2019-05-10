@@ -1,0 +1,36 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="AvaloniaAppTemplate.Namespace.TaskStatusesListView">
+ 
+    <DockPanel>
+        <!-- Add Task -->
+        <StackPanel Orientation="Horizontal">
+            <StackPanel>
+                <TextBlock Text="Statuses"/>
+                
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Classes="TableItem" Text="Id"/>
+                    <TextBlock Classes="TableItem" Text="Name"/>
+                </StackPanel>
+                        
+                <ItemsControl Items="{Binding TaskTypes}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Classes="TableItem" Text="{Binding Id}"/>
+                                <TextBlock Classes="TableItem" Text="{Binding Name}"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+                
+                <Button Margin="4" Command="{Binding GetStatuses}">Reload</Button>
+                
+            </StackPanel>
+        </StackPanel>
+    </DockPanel>
+    
+</UserControl>

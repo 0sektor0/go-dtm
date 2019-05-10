@@ -1,0 +1,34 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="AvaloniaAppTemplate.Namespace.UsersListView">
+  
+    <DockPanel>
+        <StackPanel Orientation="Horizontal">
+            <StackPanel>
+                <TextBlock Text="Users"/>
+                
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Classes="TableItem" Text="Id"/>
+                    <TextBlock Classes="TableItem" Text="Name"/>
+                </StackPanel>
+                 
+                <ItemsControl Items="{Binding Users}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Classes="TableItem" Text="{Binding Id}"/>
+                                <TextBlock Classes="TableItem" Text="{Binding Login}"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+                    
+                <Button Margin="4" Command="{Binding GetUsers}">Reload</Button>
+            </StackPanel>
+        </StackPanel>
+    </DockPanel>
+    
+</UserControl>

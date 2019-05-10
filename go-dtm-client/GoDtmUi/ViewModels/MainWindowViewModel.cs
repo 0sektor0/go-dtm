@@ -1,8 +1,11 @@
-﻿using System.Collections.ObjectModel;
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
 using DynamicData;
 using GoDtmUI.Models;
 using GoDtmUI.Api;
 using ReactiveUI;
+using Task = GoDtmUI.Models.Task;
 
 
 
@@ -10,11 +13,18 @@ namespace GoDtmUI.ViewModels
 {
     public class MainWindowViewModel : ViewModelBase
     {
+        public Client Client { get; private set; }
         public TasksFilter Filter { get; } = new TasksFilter();
-        public Client Client { get; } = new Client("http://194.87.144.249:8080");
+        public ObservableCollection<User> Users { get; } = new ObservableCollection<User>();
         public ObservableCollection<Task> Tasks { get; } = new ObservableCollection<Task>();
         public ObservableCollection<Status> TaskTypes { get; } = new ObservableCollection<Status>();
+        public string Server { get; set; } = "http://192.168.1.4:8080";
+        public string NewTaskTitle { get; set; }
+        public string NewTaskText { get; set; }
+        public int TaskToDeleteId { get; set; }
 
+        private Dictionary<string, User> _users;
+        private Dictionary<string, Status> _taskStatuses;
         private Task _openedTask;
         private bool _isAuthorized;
         private string _password;
@@ -55,15 +65,37 @@ namespace GoDtmUI.ViewModels
 
         public string CommentText { get; set; }
 
-
-        public MainWindowViewModel()
+        
+        public void SignIn()
         {
+            Client = new Client(Server);
             Client.OnApiError += error => Error = $"{error}\n{Error}";
             Client.OnAuthFailed += () => { IsAuthorized = false; };
             Client.OnAuthSuccess += () => { IsAuthorized = true; };
+            
+            if (Client.Auth(Login, Password))
+            {
+                GetTasks();
+                GetStatuses();
+                GetUsers();
+            }
+        }
+        
+        public void LogOut()
+        {
+            Client.LogOut();
         }
 
-        private void GetStatuses()
+        public void GetUsers()
+        {
+            Users.Clear();
+            Users.AddRange(Client.GetUsers(int.MaxValue, 0)?.Users);
+            
+            if(Users != null)
+                _users = Users.ToDictionary(u => u.Login, u => u);
+        }        
+
+        public void GetStatuses()
         {
             var types = Client.GetTypes();
             
@@ -71,21 +103,14 @@ namespace GoDtmUI.ViewModels
             {
                 TaskTypes.Clear();
                 TaskTypes.AddRange(types.Statuses);
+
+                _taskStatuses = types.Statuses.ToDictionary(t => t.Name, t => t);
             }
         }
 
         public void OpenTaskInfo()
         {
             OpenedTask = Client.GetTask(TaskId);
-        }
-
-        public void SignIn()
-        {
-            if (Client.Auth(Login, Password))
-            {
-                GetTasks();
-                GetStatuses();
-            }
         }
 
         public void GetTasks()
@@ -105,6 +130,37 @@ namespace GoDtmUI.ViewModels
 
             Client.CreateComment(OpenedTask.Id, CommentText);
             OpenedTask = Client.GetTask(OpenedTask.Id);
+        }
+
+        public void UpdateTask()
+        {
+            if (_users.ContainsKey(OpenedTask.Asignee.Login))
+                OpenedTask.Asignee = _users[OpenedTask.Asignee.Login];
+
+            if (_taskStatuses.ContainsKey(OpenedTask.Status.Name))
+                OpenedTask.Status = _taskStatuses[OpenedTask.Status.Name];
+
+            if (Client.UpdateTask(OpenedTask))
+            {
+                GetTasks();
+                OpenTaskInfo();
+            }
+        }
+
+        public void CreateTask()
+        {
+            var newTask = Client.CreateTask(1, NewTaskTitle, NewTaskText);
+            if(newTask != null)
+                Tasks.Add(newTask);
+        }
+
+        public void DeleteTask()
+        {
+            if (Client.DeleteTask(TaskToDeleteId))
+            {
+                var taskToDelete = Tasks.Where(t => t.Id == TaskToDeleteId).FirstOrDefault();
+                Tasks.Remove(taskToDelete);
+            }
         }
     }
 }

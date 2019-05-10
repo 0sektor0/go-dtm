@@ -1,0 +1,83 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="AvaloniaAppTemplate.Namespace.TaskSearchView">
+  
+    <DockPanel>
+        <!--  Task search -->
+                    <StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <StackPanel Orientation="Vertical">
+                                <TextBlock Classes="ListItem">Task Id</TextBlock>
+                                <TextBox Classes="ListItem" Text="{Binding TaskId}"/>
+                            </StackPanel>
+                            <Button Width="60" Margin="4" Command="{Binding OpenTaskInfo}">Open</Button>
+                            <Button Width="60" Margin="4" Command="{Binding UpdateTask}">Update</Button>
+                        </StackPanel>
+                        
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Classes="TableItem" Text="Id"/>
+                            <TextBlock Classes="TableItem" Text="Title"/>
+                            <TextBlock Classes="TableItem" Text="Asignee"/>
+                            <TextBlock Classes="TableItem" Text="Creator"/>
+                            <TextBlock Classes="TableItem" Text="Start date"/>
+                            <TextBlock Classes="TableItem" Text="End date"/>
+                            <TextBlock Classes="TableItem" Text="Creation date"/>
+                            <TextBlock Classes="TableItem" Text="Update time"/>
+                        </StackPanel>
+                        
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Classes="TableItem" Text="{Binding OpenedTask.Id}"/>
+                            <TextBox Classes="TableItem" Text="{Binding OpenedTask.Title}"/>
+                            <TextBox Classes="TableItem" Text="{Binding OpenedTask.Asignee.Login}"/>
+                            <TextBox Classes="TableItem" Text="{Binding OpenedTask.Creator.Login}"/>
+                            <TextBox Classes="TableItem" Text="{Binding OpenedTask.StartDate}"/>
+                            <TextBox Classes="TableItem" Text="{Binding OpenedTask.EndDate}"/>
+                            <TextBlock Classes="TableItem" Text="{Binding OpenedTask.CreationDate}"/>
+                            <TextBlock Classes="TableItem" Text="{Binding OpenedTask.UpdDateTime}"/>
+                        </StackPanel>
+                        
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Classes="TableItem" Text="Status: "/>
+                            <TextBox Classes="TableItem" Text="{Binding OpenedTask.Status.Name}"/>
+                        </StackPanel>
+                        
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Classes="TableItem" Text="Type: "/>
+                            <TextBlock Classes="TableItem" Text="{Binding OpenedTask.Type.Name}"/>
+                        </StackPanel>
+                        
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Classes="TableItem" Text="Task text: "/>
+                            <TextBlock Classes="TableItem" Text="{Binding OpenedTask.Text}"/>
+                        </StackPanel>
+                        
+                        <TextBlock Text="Comments"/>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Classes="TableItem" Text="Id"/>
+                            <TextBlock Classes="TableItem" Text="Developer"/>
+                            <TextBlock Classes="TableItem" Text="Text"/>
+                        </StackPanel>
+                        <ItemsControl Items="{Binding OpenedTask.Comments}">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Classes="TableItem" Text="{Binding Id}"/>
+                                        <TextBlock Classes="TableItem" Text="{Binding Developer.Login}"/>
+                                        <TextBlock Classes="TableItem" Text="{Binding Text}"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                        
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Classes="TableItem" Text="Enter comment"/>
+                            <TextBox Classes="TextInput" Text="{Binding CommentText}"/>
+                            <Button Width="60" Height="60" Margin="4" Command="{Binding AddComment}">Add Comment</Button>
+                        </StackPanel>
+                    </StackPanel>
+    </DockPanel>
+    
+</UserControl>
