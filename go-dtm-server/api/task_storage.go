@@ -4,7 +4,7 @@ import (
 	"database/sql"
 	"time"
 
-	"github.com/0sektor0/go-dtm/models"
+	"github.com/0sektor0/go-dtm/go-dtm-server/models"
 )
 
 const (

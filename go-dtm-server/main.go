@@ -4,9 +4,9 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/0sektor0/go-dtm/api"
+	"github.com/0sektor0/go-dtm/go-dtm-server/api"
 
-	"github.com/0sektor0/go-dtm/router"
+	"github.com/0sektor0/go-dtm/go-dtm-server/router"
 	"github.com/op/go-logging"
 )
 

@@ -21,7 +21,7 @@ func (this *Session) IsAlive() bool {
 }
 
 func NewSession(user *User) *Session {
-	v4, _ := uuid.NewV4()
+	v4 := uuid.NewV4()
 	token := v4.String()
 
 	session := &Session{

@@ -1,0 +1,26 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="AvaloniaAppTemplate.Namespace.TaskCreationView">
+  
+    <DockPanel>
+                    <StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Classes="TableItem" Text="Title:"/>
+                            <TextBox MinWidth="200" Text="{Binding NewTaskTitle}"/>
+                        </StackPanel>
+                        
+                        <TextBlock Classes="Separator"/>
+                        
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Classes="TableItem" Text="Text"/>
+                            <TextBox Classes="TextInput" Text="{Binding NewTaskText}"/>
+                        </StackPanel>
+                        
+                        <Button Width="60" Margin="4" Command="{Binding CreateTask}">Create</Button>
+                    </StackPanel>
+    </DockPanel>
+    
+</UserControl>

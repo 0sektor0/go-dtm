@@ -5,9 +5,9 @@ import (
 	"errors"
 	"net/http"
 
-	"github.com/0sektor0/go-dtm/api"
-	"github.com/0sektor0/go-dtm/models"
-	"github.com/0sektor0/go-dtm/router"
+	"github.com/0sektor0/go-dtm/go-dtm-server/api"
+	"github.com/0sektor0/go-dtm/go-dtm-server/models"
+	"github.com/0sektor0/go-dtm/go-dtm-server/router"
 )
 
 const (

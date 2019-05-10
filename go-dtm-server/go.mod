@@ -1,4 +1,4 @@
-module github.com/0sektor0/go-dtm
+module github.com/0sektor0/go-dtm/go-dtm-server
 
 go 1.12
 

@@ -3,7 +3,6 @@
   <component name="ContentModelStore">
     <e p="C:\projects\go-dtm\go-dtm-client" t="IncludeFlat">
       <e p="GoDtmUI" t="IncludeRecursive">
-        <e p=".gitignore" t="Include" />
         <e p="Api" t="Include">
           <e p="AuthException.cs" t="Include" />
           <e p="Client.cs" t="Include" />
@@ -44,8 +43,22 @@
           <e p="ViewModelBase.cs" t="Include" />
         </e>
         <e p="Views" t="Include">
+          <e p="LogInView.xaml" t="Include" />
+          <e p="LogInView.xaml.cs" t="Include" />
           <e p="MainWindow.xaml" t="Include" />
           <e p="MainWindow.xaml.cs" t="Include" />
+          <e p="TaskCreationView.xaml" t="Include" />
+          <e p="TaskCreationView.xaml.cs" t="Include" />
+          <e p="TaskFilterView.xaml" t="Include" />
+          <e p="TaskFilterView.xaml.cs" t="Include" />
+          <e p="TaskListView.xaml" t="Include" />
+          <e p="TaskListView.xaml.cs" t="Include" />
+          <e p="TaskSearchView.xaml" t="Include" />
+          <e p="TaskSearchView.xaml.cs" t="Include" />
+          <e p="TaskStatusesListView.xaml" t="Include" />
+          <e p="TaskStatusesListView.xaml.cs" t="Include" />
+          <e p="UsersListView.xaml" t="Include" />
+          <e p="UsersListView.xaml.cs" t="Include" />
         </e>
       </e>
       <e p="GoDtmUi.sln" t="IncludeFlat" />

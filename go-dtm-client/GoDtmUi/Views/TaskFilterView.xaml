@@ -1,0 +1,57 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="AvaloniaAppTemplate.Namespace.TaskFilterView">
+  
+    <DockPanel>
+                          <!--  Task filter -->
+                    <StackPanel Orientation="Horizontal">                    
+                        <StackPanel>
+                            <StackPanel Orientation="Vertical">
+                                <TextBlock Classes="ListItem">Offset</TextBlock>
+                                <TextBox Classes="ListItem" Text="{Binding Filter.Offset}"/>
+                            </StackPanel>
+                    
+                            <StackPanel Orientation="Vertical">
+                                <TextBlock Classes="ListItem">Limit</TextBlock>
+                                <TextBox Classes="ListItem" Text="{Binding Filter.Limit}"/>
+                            </StackPanel>
+                        </StackPanel>
+                        
+                        <StackPanel>
+                            <StackPanel Orientation="Vertical">
+                                <TextBlock Classes="ListItem">Asignee name</TextBlock>
+                                <TextBox Classes="ListItem" Text="{Binding Filter.AsigneeName}"/>
+                            </StackPanel>
+                    
+                            <StackPanel Orientation="Vertical">
+                                <TextBlock Classes="ListItem">Creator Name</TextBlock>
+                                <TextBox Classes="ListItem" Text="{Binding Filter.CreatorName}"/>
+                            </StackPanel>
+                        </StackPanel>
+    
+                        <StackPanel>
+                            <StackPanel Orientation="Vertical">
+                                <TextBlock Classes="ListItem">Status</TextBlock>
+                                <TextBox Classes="ListItem" Text="{Binding Filter.StatusName}"/>
+                            </StackPanel>
+                    
+                            <StackPanel Orientation="Vertical">
+                                <TextBlock Classes="ListItem">End date</TextBlock>
+                                <TextBox Classes="ListItem" Text="{Binding Filter.EndDate}"/>
+                            </StackPanel>
+                        </StackPanel>
+    
+                        <StackPanel>
+                            <StackPanel Orientation="Vertical">
+                                <TextBlock Classes="ListItem">Start date</TextBlock>
+                                <TextBox Classes="ListItem" Text="{Binding Filter.StartDate}"/>
+                            </StackPanel>
+                            <Button Width="120" Height="60" Margin="4" Command="{Binding GetTasks}">Find</Button>
+                        </StackPanel>
+                    </StackPanel>
+  </DockPanel>
+    
+</UserControl>

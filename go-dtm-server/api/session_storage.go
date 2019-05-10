@@ -4,7 +4,7 @@ import (
 	"errors"
 	"sync"
 
-	"github.com/0sektor0/go-dtm/models"
+	"github.com/0sektor0/go-dtm/go-dtm-server/models"
 )
 
 type ISessionStorage interface {

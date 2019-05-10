@@ -3,7 +3,7 @@ package api
 import (
 	"database/sql"
 
-	"github.com/0sektor0/go-dtm/models"
+	"github.com/0sektor0/go-dtm/go-dtm-server/models"
 )
 
 type UserUpdateDelegate func(*models.User)
