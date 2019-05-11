@@ -11,21 +11,23 @@ import (
 )
 
 const (
-	ERROR_TEXT_PERMISION 	   		= "permissions denied"
-	ERROR_TEXT_UNIMPLEMENTED_API 	= "api not implemented"
-	CONTEXT_SESSION_KEY        		= "session"
-	POST_LOGIN_PARAM           		= "login"
-	POST_PASSWORD_PARAM        		= "password"
-	POST_TOKEN_PARAM           		= "token"
-	POST_TEXT_PARAM            		= "text"
-	POST_TITLE_PARAM           		= "title"
-	POST_TASK_START_DATE_PARAM 		= "taskStartDate"
-	POST_TASK_END_DATE_PARAM   		= "taskEndDate"
-	POST_LIMIT_PARAM           		= "limit"
-	POST_OFFSET_PARAM          		= "offset"
-	POST_TASK_UPDATE_PARAM     		= "taskUpdate"
-	POST_COMMENT_TEXT_PARAM	   		= "commentText"
-	POST_ID_PARAM	   				= "id"
+	ERROR_TEXT_PERMISION         = "permissions denied"
+	ERROR_TEXT_UNIMPLEMENTED_API = "api not implemented"
+	CONTEXT_SESSION_KEY          = "session"
+	POST_LOGIN_PARAM             = "login"
+	POST_PASSWORD_PARAM          = "password"
+	POST_TOKEN_PARAM             = "token"
+	POST_TEXT_PARAM              = "text"
+	POST_TITLE_PARAM             = "title"
+	POST_TASK_START_DATE_PARAM   = "taskStartDate"
+	POST_TASK_END_DATE_PARAM     = "taskEndDate"
+	POST_LIMIT_PARAM             = "limit"
+	POST_OFFSET_PARAM            = "offset"
+	POST_TASK_UPDATE_PARAM       = "taskUpdate"
+	POST_COMMENT_TEXT_PARAM      = "commentText"
+	POST_ID_PARAM                = "id"
+	POST_TASK_FILTER_TYPE_PARAM  = "filterType"
+	POST_TASK_FILTER_PARAM_PARAM = "filterParam"
 )
 
 type IPermisionChecker interface {
@@ -72,7 +74,7 @@ func (this *NetworkHandler) AuthMiddleware(next router.HandlerFunc) router.Handl
 
 		if err != nil {
 			SendResponse(ctx, nil, err)
-			return;
+			return
 		}
 
 		ctx.AddCtxParam(CONTEXT_SESSION_KEY, session)
@@ -103,15 +105,15 @@ func (this *NetworkHandler) PermisionMiddleware(next router.HandlerFunc, idKey s
 }
 
 func (this *NetworkHandler) TasksPermisionMiddleware(next router.HandlerFunc) router.HandlerFunc {
-	return  this.PermisionMiddleware(next, POST_ID_PARAM, this._apiClient.Tasks)
+	return this.PermisionMiddleware(next, POST_ID_PARAM, this._apiClient.Tasks)
 }
 
 func (this *NetworkHandler) CommentsPermisionMiddleware(next router.HandlerFunc) router.HandlerFunc {
-	return  this.PermisionMiddleware(next, POST_ID_PARAM, this._apiClient.Comments)
+	return this.PermisionMiddleware(next, POST_ID_PARAM, this._apiClient.Comments)
 }
 
 func (this *NetworkHandler) DataTypePermisionMiddleware(next router.HandlerFunc) router.HandlerFunc {
-	return  this.PermisionMiddleware(next, POST_ID_PARAM, this._apiClient.TaskTypes)
+	return this.PermisionMiddleware(next, POST_ID_PARAM, this._apiClient.TaskTypes)
 }
 
 func (this *NetworkHandler) Authorize(ctx router.IContext) {
@@ -186,7 +188,10 @@ func (this *NetworkHandler) GetTasks(ctx router.IContext) {
 		return
 	}
 
-	tasks, err := this._apiClient.Tasks.GetList(offset, limit)
+	filterType := ctx.PostParamDefault(POST_TASK_FILTER_TYPE_PARAM, api.TASK_FILTER_DEFAULT_TYPE)
+	filterParam, _ := ctx.PostParamInt(POST_TASK_FILTER_PARAM_PARAM)
+
+	tasks, err := this._apiClient.Tasks.GetList(offset, limit, filterType, filterParam)
 	SendResponse(ctx, tasks, err)
 }
 
@@ -256,13 +261,13 @@ func (this *NetworkHandler) UpdateTask(ctx router.IContext) {
 
 func (this *NetworkHandler) AddComment(ctx router.IContext) {
 	session := GetSessionFromContext(ctx)
-	
+
 	taskId, err := ctx.PostParamInt(POST_ID_PARAM)
 	if err != nil {
 		SendResponse(ctx, nil, err)
 		return
 	}
-	
+
 	text := ctx.PostParam(POST_COMMENT_TEXT_PARAM)
 	if text == "" {
 		SendErrorResponse(ctx, "empty comment")
