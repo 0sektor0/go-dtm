@@ -112,7 +112,7 @@ namespace GoDtmUI.Api
             CheckAuthState();
 
             var tasks = SendApiRequest(
-                $"token={_session.Token}&offset={filter.Offset}&limit={filter.Limit}", 
+                $"token={_session.Token}&offset={filter.Offset}&limit={filter.Limit}&filterType={filter.Type}&filterParam={filter.Param}", 
                 "tasks/get",
                 TasksInfo.FromJson);
             

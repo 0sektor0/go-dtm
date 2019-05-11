@@ -23,19 +23,19 @@
                         <StackPanel>
                             <StackPanel Orientation="Vertical">
                                 <TextBlock Classes="ListItem">Asignee name</TextBlock>
-                                <TextBox Classes="ListItem" Text="{Binding Filter.AsigneeName}"/>
+                                <TextBox Classes="ListItem" Text="{Binding Filter.Asignee.Login}"/>
                             </StackPanel>
                     
                             <StackPanel Orientation="Vertical">
                                 <TextBlock Classes="ListItem">Creator Name</TextBlock>
-                                <TextBox Classes="ListItem" Text="{Binding Filter.CreatorName}"/>
+                                <TextBox Classes="ListItem" Text="{Binding Filter.Creator.Login}"/>
                             </StackPanel>
                         </StackPanel>
     
                         <StackPanel>
                             <StackPanel Orientation="Vertical">
                                 <TextBlock Classes="ListItem">Status</TextBlock>
-                                <TextBox Classes="ListItem" Text="{Binding Filter.StatusName}"/>
+                                <TextBox Classes="ListItem" Text="{Binding Filter.Status.Name}"/>
                             </StackPanel>
                     
                             <StackPanel Orientation="Vertical">
