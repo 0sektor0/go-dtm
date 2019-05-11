@@ -37,6 +37,10 @@
           </e>
         </e>
         <e p="Program.cs" t="Include" />
+        <e p="Utils" t="Include">
+          <e p="DictioanaryUtils.cs" t="Include" />
+          <e p="StringUtils.cs" t="Include" />
+        </e>
         <e p="ViewLocator.cs" t="Include" />
         <e p="ViewModels" t="Include">
           <e p="MainWindowViewModel.cs" t="Include" />

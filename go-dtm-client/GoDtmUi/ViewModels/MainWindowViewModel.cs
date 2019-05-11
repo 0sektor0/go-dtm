@@ -4,6 +4,7 @@ using System.Linq;
 using DynamicData;
 using GoDtmUI.Models;
 using GoDtmUI.Api;
+using GoDtmUI.Utils;
 using ReactiveUI;
 using Task = GoDtmUI.Models.Task;
 
@@ -115,8 +116,31 @@ namespace GoDtmUI.ViewModels
 
         public void GetTasks()
         {
-            var tasksInfo = Client.GetTasks(Filter);
+            var filter = new TasksFilter
+            {
+                Limit = Filter.Limit,
+                Offset = Filter.Offset
+            };
+
+            var status = _taskStatuses.GetValueAlways(Filter.Status.Name);
+            if (status != null)
+                filter.Status = status;
+
+            var asignee = _users.GetValueAlways(Filter.Asignee.Login);
+            if (asignee != null)
+                filter.Asignee = asignee;
+                    
+            var creator = _users.GetValueAlways(Filter.Creator.Login);
+            if (creator != null)
+                filter.Creator = creator;
+
+            if (Filter.StartDate != default)
+                filter.StartDate = Filter.StartDate;
+
+            if (Filter.EndDate != default)
+                filter.EndDate = Filter.EndDate;
             
+            var tasksInfo = Client.GetTasks(filter);
             if (tasksInfo != null)
             {
                 Tasks.Clear();

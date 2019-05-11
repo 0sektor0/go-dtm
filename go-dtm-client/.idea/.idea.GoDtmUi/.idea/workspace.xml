@@ -2,34 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c981dc34-cd68-400e-bf3e-a27bcca7896f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/GoDtmUi/Views/LogInView.xaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GoDtmUi/Views/LogInView.xaml.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GoDtmUi/Views/TaskCreationView.xaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GoDtmUi/Views/TaskCreationView.xaml.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GoDtmUi/Views/TaskFilterView.xaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GoDtmUi/Views/TaskFilterView.xaml.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GoDtmUi/Views/TaskListView.xaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GoDtmUi/Views/TaskListView.xaml.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GoDtmUi/Views/TaskSearchView.xaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GoDtmUi/Views/TaskSearchView.xaml.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GoDtmUi/Views/TaskStatusesListView.xaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GoDtmUi/Views/UsersListView.xaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GoDtmUi/Utils/DictioanaryUtils.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GoDtmUi/Utils/StringUtils.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GoDtmUi/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GoDtmUi/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GoDtmUi/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GoDtmUi/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GoDtmUi/Api/Client.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GoDtmUi/Api/Client.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GoDtmUi/Models/TasksFilter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GoDtmUi/Models/TasksFilter.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GoDtmUi/ViewModels/MainWindowViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GoDtmUi/ViewModels/MainWindowViewModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GoDtmUi/Views/MainWindow.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/GoDtmUi/Views/MainWindow.xaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../go-dtm-server/api/attachment_storage.go" beforeDir="false" afterPath="$PROJECT_DIR$/../go-dtm-server/api/attachment_storage.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../go-dtm-server/api/commetns_storage.go" beforeDir="false" afterPath="$PROJECT_DIR$/../go-dtm-server/api/commetns_storage.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../go-dtm-server/api/scaners.go" beforeDir="false" afterPath="$PROJECT_DIR$/../go-dtm-server/api/scaners.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../go-dtm-server/api/session_storage.go" beforeDir="false" afterPath="$PROJECT_DIR$/../go-dtm-server/api/session_storage.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../go-dtm-server/api/task_storage.go" beforeDir="false" afterPath="$PROJECT_DIR$/../go-dtm-server/api/task_storage.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../go-dtm-server/api/types_storage.go" beforeDir="false" afterPath="$PROJECT_DIR$/../go-dtm-server/api/types_storage.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../go-dtm-server/api/user_storage.go" beforeDir="false" afterPath="$PROJECT_DIR$/../go-dtm-server/api/user_storage.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../go-dtm-server/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/../go-dtm-server/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../go-dtm-server/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/../go-dtm-server/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../go-dtm-server/models/session.go" beforeDir="false" afterPath="$PROJECT_DIR$/../go-dtm-server/models/session.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../go-dtm-server/network_handler.go" beforeDir="false" afterPath="$PROJECT_DIR$/../go-dtm-server/network_handler.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GoDtmUi/Views/TaskFilterView.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/GoDtmUi/Views/TaskFilterView.xaml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -39,97 +19,84 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/GoDtmUi/ViewModels/MainWindowViewModel.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="291">
-              <caret line="158" column="30" selection-start-line="158" selection-start-column="30" selection-end-line="158" selection-end-column="30" />
+            <state relative-caret-position="370">
+              <caret line="142" column="12" selection-start-line="142" selection-start-column="12" selection-end-line="142" selection-end-column="12" />
               <folding>
-                <marker date="1557493735332" expanded="false" signature="6:202" ph="..." />
-                <marker date="1557493735332" expanded="true" signature="234:4757" ph="{...}" />
-                <marker date="1557493735332" expanded="true" signature="289:4755" ph="{...}" />
-                <marker date="1557493735332" expanded="false" signature="1222:1348" ph="{...}" />
-                <marker date="1557493735332" expanded="false" signature="1377:1491" ph="{...}" />
-                <marker date="1557493735332" expanded="false" signature="1531:1653" ph="{...}" />
-                <marker date="1557493735332" expanded="false" signature="1690:1804" ph="{...}" />
-                <marker date="1557493735332" expanded="false" signature="1836:1960" ph="{...}" />
-                <marker date="1557493735332" expanded="false" signature="2089:2531" ph="{...}" />
-                <marker date="1557493735332" expanded="true" signature="2406:2521" ph="{...}" />
-                <marker date="1557493735332" expanded="false" signature="2569:2618" ph="{...}" />
-                <marker date="1557493735332" expanded="false" signature="2650:2876" ph="{...}" />
-                <marker date="1557493735332" expanded="false" signature="2919:3224" ph="{...}" />
-                <marker date="1557493735332" expanded="false" signature="3016:3214" ph="{...}" />
-                <marker date="1557493735332" expanded="false" signature="3260:3329" ph="{...}" />
-                <marker date="1557493735332" expanded="false" signature="3361:3590" ph="{...}" />
-                <marker date="1557493735332" expanded="false" signature="3472:3580" ph="{...}" />
-                <marker date="1557493735332" expanded="false" signature="3632:3815" ph="{...}" />
-                <marker date="1557493735332" expanded="false" signature="3849:4281" ph="{...}" />
-                <marker date="1557493735332" expanded="false" signature="4183:4271" ph="{...}" />
-                <marker date="1557493735332" expanded="false" signature="4315:4478" ph="{...}" />
-                <marker date="1557493735332" expanded="true" signature="4512:4749" ph="{...}" />
-                <marker date="1557493735332" expanded="true" signature="4573:4739" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/GoDtmUi/Api/Client.cs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="159">
-              <caret line="133" column="20" selection-start-line="133" selection-start-column="20" selection-end-line="133" selection-end-column="20" />
-              <folding>
-                <marker date="1557489190384" expanded="false" signature="6:95" ph="..." />
-                <marker date="1557489190384" expanded="true" signature="120:6745" ph="{...}" />
-                <marker date="1557489190384" expanded="true" signature="146:6743" ph="{...}" />
-                <marker date="1557489190384" expanded="true" signature="474:558" ph="{...}" />
-                <marker date="1557489190384" expanded="true" signature="669:1715" ph="{...}" />
-                <marker date="1557489190384" expanded="true" signature="939:1027" ph="{...}" />
-                <marker date="1557489190384" expanded="true" signature="1059:1189" ph="{...}" />
-                <marker date="1557489190384" expanded="true" signature="1337:1444" ph="{...}" />
-                <marker date="1557489190384" expanded="true" signature="1461:1567" ph="{...}" />
-                <marker date="1557489190384" expanded="true" signature="1600:1705" ph="{...}" />
-                <marker date="1557489190384" expanded="true" signature="1780:2170" ph="{...}" />
-                <marker date="1557489190384" expanded="true" signature="1927:2025" ph="{...}" />
-                <marker date="1557489190384" expanded="true" signature="2199:2271" ph="{...}" />
-                <marker date="1557489190384" expanded="true" signature="2301:2357" ph="{...}" />
-                <marker date="1557489190384" expanded="true" signature="2416:2561" ph="{...}" />
-                <marker date="1557489190384" expanded="true" signature="2608:2858" ph="{...}" />
-                <marker date="1557489190384" expanded="true" signature="2652:2723" ph="{...}" />
-                <marker date="1557489190384" expanded="true" signature="2777:2848" ph="{...}" />
-                <marker date="1557489190384" expanded="true" signature="2913:3197" ph="{...}" />
-                <marker date="1557489190384" expanded="true" signature="3234:3474" ph="{...}" />
-                <marker date="1557489190384" expanded="true" signature="3514:3766" ph="{...}" />
-                <marker date="1557489190384" expanded="true" signature="3824:4094" ph="{...}" />
-                <marker date="1557489190384" expanded="true" signature="4131:4187" ph="{...}" />
-                <marker date="1557489190384" expanded="true" signature="4237:4294" ph="{...}" />
-                <marker date="1557489190384" expanded="true" signature="4354:4608" ph="{...}" />
-                <marker date="1557489190384" expanded="true" signature="4651:4981" ph="{...}" />
-                <marker date="1557489190384" expanded="true" signature="5062:5327" ph="{...}" />
-                <marker date="1557489190384" expanded="true" signature="5387:5667" ph="{...}" />
-                <marker date="1557489190384" expanded="true" signature="5738:6024" ph="{...}" />
-                <marker date="1557489190384" expanded="true" signature="6082:6349" ph="{...}" />
-                <marker date="1557489190384" expanded="true" signature="6394:6638" ph="{...}" />
-                <marker date="1557489190384" expanded="true" signature="6692:6737" ph="{...}" />
+                <marker date="1557588399132" expanded="false" signature="6:223" ph="..." />
+                <marker date="1557588399132" expanded="true" signature="255:5579" ph="{...}" />
+                <marker date="1557588399132" expanded="true" signature="310:5577" ph="{...}" />
+                <marker date="1557588399132" expanded="false" signature="1243:1369" ph="{...}" />
+                <marker date="1557588399132" expanded="false" signature="1398:1512" ph="{...}" />
+                <marker date="1557588399132" expanded="false" signature="1552:1674" ph="{...}" />
+                <marker date="1557588399132" expanded="false" signature="1711:1825" ph="{...}" />
+                <marker date="1557588399132" expanded="false" signature="1857:1981" ph="{...}" />
+                <marker date="1557588399132" expanded="false" signature="2110:2552" ph="{...}" />
+                <marker date="1557588399132" expanded="false" signature="2427:2542" ph="{...}" />
+                <marker date="1557588399132" expanded="false" signature="2590:2639" ph="{...}" />
+                <marker date="1557588399132" expanded="false" signature="2671:2897" ph="{...}" />
+                <marker date="1557588399132" expanded="false" signature="2940:3245" ph="{...}" />
+                <marker date="1557588399132" expanded="false" signature="3037:3235" ph="{...}" />
+                <marker date="1557588399132" expanded="false" signature="3281:3350" ph="{...}" />
+                <marker date="1557588399132" expanded="true" signature="3382:4412" ph="{...}" />
+                <marker date="1557588399132" expanded="true" signature="3446:3538" ph="{...}" />
+                <marker date="1557588399132" expanded="true" signature="4294:4402" ph="{...}" />
+                <marker date="1557588399132" expanded="true" signature="4454:4637" ph="{...}" />
+                <marker date="1557588399132" expanded="true" signature="4671:5103" ph="{...}" />
+                <marker date="1557588399132" expanded="true" signature="5005:5093" ph="{...}" />
+                <marker date="1557588399132" expanded="true" signature="5137:5300" ph="{...}" />
+                <marker date="1557588399132" expanded="true" signature="5334:5571" ph="{...}" />
+                <marker date="1557588399132" expanded="true" signature="5395:5561" ph="{...}" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/GoDtmUi/Views/MainWindow.xaml">
+        <entry file="file://$PROJECT_DIR$/GoDtmUi/Utils/DictioanaryUtils.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="816">
-              <caret line="51" column="20" selection-start-line="51" selection-start-column="20" selection-end-line="51" selection-end-column="20" />
+            <state relative-caret-position="272">
+              <caret line="16" column="1" lean-forward="true" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
+              <folding>
+                <marker date="1557588302891" expanded="true" signature="60:406" ph="{...}" />
+                <marker date="1557588302891" expanded="true" signature="103:404" ph="{...}" />
+                <marker date="1557588302891" expanded="true" signature="244:398" ph="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/GoDtmUi/Views/TaskListView.xaml">
+        <entry file="file://$PROJECT_DIR$/GoDtmUi/Models/TasksFilter.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="371">
-              <caret line="22" column="64" lean-forward="true" selection-start-line="22" selection-start-column="64" selection-end-line="22" selection-end-column="64" />
+            <state relative-caret-position="119">
+              <caret line="8" column="50" lean-forward="true" selection-start-line="8" selection-start-column="50" selection-end-line="8" selection-end-column="50" />
+              <folding>
+                <marker date="1557587402989" expanded="true" signature="24:2086" ph="{...}" />
+                <marker date="1557587402989" expanded="true" signature="55:2084" ph="{...}" />
+                <marker date="1557587402989" expanded="true" signature="447:644" ph="{...}" />
+                <marker date="1557587402989" expanded="true" signature="501:634" ph="{...}" />
+                <marker date="1557587402989" expanded="true" signature="704:905" ph="{...}" />
+                <marker date="1557587402989" expanded="true" signature="759:895" ph="{...}" />
+                <marker date="1557587402989" expanded="true" signature="965:1166" ph="{...}" />
+                <marker date="1557587402989" expanded="true" signature="1020:1156" ph="{...}" />
+                <marker date="1557587402989" expanded="true" signature="1228:1430" ph="{...}" />
+                <marker date="1557587402989" expanded="true" signature="1285:1420" ph="{...}" />
+                <marker date="1557587402989" expanded="true" signature="1488:1682" ph="{...}" />
+                <marker date="1557587402989" expanded="true" signature="1543:1672" ph="{...}" />
+                <marker date="1557587402989" expanded="true" signature="1898:2078" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/GoDtmUi/Views/TaskFilterView.xaml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="541">
+              <caret line="36" column="80" lean-forward="true" selection-start-line="36" selection-start-column="80" selection-end-line="36" selection-end-column="80" />
             </state>
           </provider>
         </entry>
@@ -148,34 +115,40 @@
       <find>GetStatuses</find>
       <find>Grid</find>
       <find>Height=&quot;</find>
+      <find>task</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/GoDtmUi/Models/Status.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/GoDtmUi/Api/Client.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/90E93788-E934-48B7-A7CB-CECAB05F4851/33/354bb591/RuntimeType.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/GoDtmUi/Models/User.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/GoDtmUi/Models/Comment.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/GoDtmUi/Views/TaskSearchView.xaml" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/GoDtmUi/Models/UsersInfo.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/GoDtmUi/Views/TaskCreationView.xaml.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9230FBA6-D2C0-4B7C-A75B-9978EE2023F9/ec/e894e404/XamlObjectWriter.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/GoDtmUi/Views/TaskCreationView.xaml" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/GoDtmUi/Models/Task.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/GoDtmUi/Views/TaskStatusesListView.xaml" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/90E93788-E934-48B7-A7CB-CECAB05F4851/62/d945fc6f/ExceptionDispatchInfo.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/GoDtmUi/Views/TaskStatusesListView.xaml.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/GoDtmUi/Views/UsersListView.xaml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/GoDtmUi/Views/TaskSearchView.xaml.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/GoDtmUi/Program.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/GoDtmUi/ViewModels/MainWindowViewModel.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/GoDtmUi/Views/TaskListView.xaml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/GoDtmUi/Views/TaskFilterView.xaml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/GoDtmUi/Views/LogInView.xaml" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9230FBA6-D2C0-4B7C-A75B-9978EE2023F9/b1/9f7e1a3b/XamlWriterInternalBase.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/GoDtmUi/Views/MainWindow.xaml" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/GoDtmUi/Models/Status.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/90E93788-E934-48B7-A7CB-CECAB05F4851/33/354bb591/RuntimeType.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/GoDtmUi/Models/User.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/GoDtmUi/Models/Comment.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/GoDtmUi/Models/UsersInfo.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9230FBA6-D2C0-4B7C-A75B-9978EE2023F9/ec/e894e404/XamlObjectWriter.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/GoDtmUi/Models/Task.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/GoDtmUi/Models/TasksFilter.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/90E93788-E934-48B7-A7CB-CECAB05F4851/62/d945fc6f/ExceptionDispatchInfo.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/FE782EBE-B64C-4E89-A7E1-94C33DCD5D79/4/RoutedEvent.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/GoDtmUi/Program.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/GoDtmUi/ViewModels/MainWindowViewModel.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/GoDtmUi/Utils/StringUtils.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/GoDtmUi/Utils/DictioanaryUtils.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9230FBA6-D2C0-4B7C-A75B-9978EE2023F9/b1/9f7e1a3b/XamlWriterInternalBase.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -184,15 +157,19 @@
         <option value="$PROJECT_DIR$/GoDtmUi/Views/TakStatusesListView.xaml" />
         <option value="$PROJECT_DIR$/GoDtmUi/Views/TaskStatusesListView.xaml.cs" />
         <option value="$PROJECT_DIR$/GoDtmUi/Views/TaskSearchView.xaml" />
-        <option value="$PROJECT_DIR$/GoDtmUi/Api/Client.cs" />
         <option value="$PROJECT_DIR$/GoDtmUi/Views/MainWindow.xaml" />
         <option value="$PROJECT_DIR$/GoDtmUi/Views/TaskCreationView.xaml" />
         <option value="$PROJECT_DIR$/GoDtmUi/Views/LogInView.xaml" />
         <option value="$PROJECT_DIR$/GoDtmUi/Views/TaskStatusesListView.xaml" />
         <option value="$PROJECT_DIR$/GoDtmUi/Views/UsersListView.xaml" />
-        <option value="$PROJECT_DIR$/GoDtmUi/ViewModels/MainWindowViewModel.cs" />
-        <option value="$PROJECT_DIR$/GoDtmUi/Views/TaskFilterView.xaml" />
         <option value="$PROJECT_DIR$/GoDtmUi/Views/TaskListView.xaml" />
+        <option value="$PROJECT_DIR$/GoDtmUi/Api/Client.cs" />
+        <option value="$PROJECT_DIR$/GoDtmUi/Models/TasksFilter.cs" />
+        <option value="$PROJECT_DIR$/GoDtmUi/Views/TaskFilterView.xaml" />
+        <option value="$PROJECT_DIR$/GoDtmUi/Utils/StringUtils.cs" />
+        <option value="$PROJECT_DIR$/GoDtmUi/Models/User.cs" />
+        <option value="$PROJECT_DIR$/GoDtmUi/Utils/DictioanaryUtils.cs" />
+        <option value="$PROJECT_DIR$/GoDtmUi/ViewModels/MainWindowViewModel.cs" />
       </list>
     </option>
   </component>
@@ -201,12 +178,15 @@
     <option name="width" value="974" />
     <option name="height" value="1047" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectView">
     <navigator currentView="SolutionExplorer" proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="AssemblyExplorer" />
       <pane id="FileSystemExplorer" />
       <pane id="SolutionExplorer">
         <subPane>
@@ -230,6 +210,18 @@
               <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
               <item name="GoDtmUi" type="24d0babc:SolutionExplorerModelNode" />
               <item name="GoDtmUI" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="Utils" type="24d0babc:SolutionExplorerModelNode" />
+            </path>
+            <path>
+              <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
+              <item name="GoDtmUi" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="GoDtmUI" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="ViewModels" type="24d0babc:SolutionExplorerModelNode" />
+            </path>
+            <path>
+              <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
+              <item name="GoDtmUi" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="GoDtmUI" type="24d0babc:SolutionExplorerModelNode" />
               <item name="Views" type="24d0babc:SolutionExplorerModelNode" />
             </path>
           </expand>
@@ -237,7 +229,6 @@
         </subPane>
         <option name="show-all-files" value="false" />
       </pane>
-      <pane id="AssemblyExplorer" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -296,7 +287,9 @@
       <option name="presentableId" value="Default" />
       <updated>1557074357812</updated>
       <workItem from="1557074360127" duration="6429000" />
-      <workItem from="1557437442423" duration="15103000" />
+      <workItem from="1557437442423" duration="15399000" />
+      <workItem from="1557576054052" duration="202000" />
+      <workItem from="1557576335811" duration="7881000" />
     </task>
     <task id="LOCAL-00001" summary="comments added">
       <created>1557080767492</created>
@@ -305,11 +298,25 @@
       <option name="project" value="LOCAL" />
       <updated>1557080767492</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="gui completed">
+      <created>1557494412861</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1557494412861</updated>
+    </task>
+    <task id="LOCAL-00003" summary="gui completed">
+      <created>1557494441325</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1557494441325</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="21532000" />
+    <option name="totallyTimeSpent" value="29911000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -324,15 +331,15 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17270789" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17590618" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Capture Tool" order="3" />
       <window_info id="Favorites" order="4" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.3997833" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32936078" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32936078" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3997833" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -361,7 +368,8 @@
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
   <component name="VcsManagerConfiguration">
     <MESSAGE value="comments added" />
-    <option name="LAST_COMMIT_MESSAGE" value="comments added" />
+    <MESSAGE value="gui completed" />
+    <option name="LAST_COMMIT_MESSAGE" value="gui completed" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -371,39 +379,36 @@
           <option name="timeStamp" value="1" />
         </breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/GoDtmUi/Api/Client.cs</url>
-          <line>137</line>
-          <properties documentPath="$PROJECT_DIR$/GoDtmUi/Api/Client.cs" initialLine="137">
+          <url>file://$PROJECT_DIR$/GoDtmUi/ViewModels/MainWindowViewModel.cs</url>
+          <line>136</line>
+          <properties documentPath="$PROJECT_DIR$/GoDtmUi/ViewModels/MainWindowViewModel.cs" initialLine="136">
             <startOffsets>
-              <option value="3580" />
+              <option value="4015" />
             </startOffsets>
             <endOffsets>
-              <option value="3720" />
+              <option value="4047" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="16" />
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/GoDtmUi/ViewModels/MainWindowViewModel.cs</url>
+          <line>139</line>
+          <properties documentPath="$PROJECT_DIR$/GoDtmUi/ViewModels/MainWindowViewModel.cs" initialLine="139">
+            <startOffsets>
+              <option value="4114" />
+            </startOffsets>
+            <endOffsets>
+              <option value="4144" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="10" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/GoDtmUi/.gitignore" />
-    <entry file="file://$PROJECT_DIR$/GoDtmUi/Program.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="13" column="5" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="5" />
-          <folding>
-            <marker date="1557074405302" expanded="false" signature="6:149" ph="..." />
-            <marker date="1557074405302" expanded="true" signature="170:1151" ph="{...}" />
-            <marker date="1557074405302" expanded="true" signature="190:1149" ph="{...}" />
-            <marker date="1557074405302" expanded="true" signature="205:413" ph="/* Initialization code. Don't use any Avalonia, third-party APIs or any ... */" />
-            <marker date="1557074405302" expanded="true" signature="790:899" ph="/* Your application's entry point. Here you can initialize your MVVM framework, DI ... */" />
-            <marker date="1557074405302" expanded="true" signature="967:1143" ph="{...}" />
-            <marker date="1557074405302" expanded="true" signature="1030:1102" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9230FBA6-D2C0-4B7C-A75B-9978EE2023F9/b1/9f7e1a3b/XamlWriterInternalBase.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="176">
@@ -547,17 +552,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/GoDtmUi/Models/User.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
-          <folding>
-            <marker date="1557074293855" expanded="true" signature="50:571" ph="{...}" />
-            <marker date="1557074293855" expanded="true" signature="74:569" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9230FBA6-D2C0-4B7C-A75B-9978EE2023F9/ec/e894e404/XamlObjectWriter.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="227">
@@ -632,34 +626,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/90E93788-E934-48B7-A7CB-CECAB05F4851/62/d945fc6f/ExceptionDispatchInfo.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="616">
-          <caret line="88" column="23" lean-forward="true" selection-start-line="88" selection-start-column="23" selection-end-line="88" selection-end-column="23" />
-          <folding>
-            <marker date="1557002623243" expanded="true" signature="0:360" ph="/* Decompiled with JetBrains decompiler ... */" />
-            <marker date="1557002623243" expanded="true" signature="431:2426" ph="{...}" />
-            <marker date="1557002623243" expanded="true" signature="477:2424" ph="{...}" />
-            <marker date="1557002623243" expanded="true" signature="759:1239" ph="{...}" />
-            <marker date="1557002623243" expanded="true" signature="1280:1360" ph="{...}" />
-            <marker date="1557002623243" expanded="true" signature="1296:1354" ph="{...}" />
-            <marker date="1557002623243" expanded="true" signature="1395:1470" ph="{...}" />
-            <marker date="1557002623243" expanded="true" signature="1411:1464" ph="{...}" />
-            <marker date="1557002623243" expanded="true" signature="1513:1585" ph="{...}" />
-            <marker date="1557002623243" expanded="true" signature="1529:1579" ph="{...}" />
-            <marker date="1557002623243" expanded="true" signature="1625:1701" ph="{...}" />
-            <marker date="1557002623243" expanded="true" signature="1641:1695" ph="{...}" />
-            <marker date="1557002623243" expanded="true" signature="1739:1817" ph="{...}" />
-            <marker date="1557002623243" expanded="true" signature="1755:1811" ph="{...}" />
-            <marker date="1557002623243" expanded="true" signature="1884:2049" ph="{...}" />
-            <marker date="1557002623243" expanded="true" signature="2087:2158" ph="{...}" />
-            <marker date="1557002623243" expanded="true" signature="2103:2152" ph="{...}" />
-            <marker date="1557002623243" expanded="true" signature="2206:2307" ph="{...}" />
-            <marker date="1557002623243" expanded="true" signature="2355:2420" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/GoDtmUi/Views/TaskCreationView.xaml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
@@ -685,13 +651,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="561">
           <caret line="33" column="16" lean-forward="true" selection-start-line="33" selection-start-column="16" selection-end-line="33" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GoDtmUi/Views/TaskSearchView.xaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="473">
-          <caret line="58" column="70" selection-start-line="58" selection-start-column="70" selection-end-line="58" selection-end-column="70" />
         </state>
       </provider>
     </entry>
@@ -1205,96 +1164,238 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/GoDtmUi/Views/TaskFilterView.xaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="694">
-          <caret line="51" column="113" selection-start-line="51" selection-start-column="113" selection-end-line="51" selection-end-column="113" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/GoDtmUi/Views/MainWindow.xaml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="816">
+        <state relative-caret-position="184">
           <caret line="51" column="20" selection-start-line="51" selection-start-column="20" selection-end-line="51" selection-end-column="20" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/GoDtmUi/Views/TaskListView.xaml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="371">
-          <caret line="22" column="64" lean-forward="true" selection-start-line="22" selection-start-column="64" selection-end-line="22" selection-end-column="64" />
+        <state relative-caret-position="374">
+          <caret line="22" column="64" selection-start-line="22" selection-start-column="64" selection-end-line="22" selection-end-column="64" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/GoDtmUi/ViewModels/MainWindowViewModel.cs">
+    <entry file="file://$PROJECT_DIR$/GoDtmUi/Views/TaskSearchView.xaml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="291">
-          <caret line="158" column="30" selection-start-line="158" selection-start-column="30" selection-end-line="158" selection-end-column="30" />
-          <folding>
-            <marker date="1557493735332" expanded="false" signature="6:202" ph="..." />
-            <marker date="1557493735332" expanded="true" signature="234:4757" ph="{...}" />
-            <marker date="1557493735332" expanded="true" signature="289:4755" ph="{...}" />
-            <marker date="1557493735332" expanded="false" signature="1222:1348" ph="{...}" />
-            <marker date="1557493735332" expanded="false" signature="1377:1491" ph="{...}" />
-            <marker date="1557493735332" expanded="false" signature="1531:1653" ph="{...}" />
-            <marker date="1557493735332" expanded="false" signature="1690:1804" ph="{...}" />
-            <marker date="1557493735332" expanded="false" signature="1836:1960" ph="{...}" />
-            <marker date="1557493735332" expanded="false" signature="2089:2531" ph="{...}" />
-            <marker date="1557493735332" expanded="true" signature="2406:2521" ph="{...}" />
-            <marker date="1557493735332" expanded="false" signature="2569:2618" ph="{...}" />
-            <marker date="1557493735332" expanded="false" signature="2650:2876" ph="{...}" />
-            <marker date="1557493735332" expanded="false" signature="2919:3224" ph="{...}" />
-            <marker date="1557493735332" expanded="false" signature="3016:3214" ph="{...}" />
-            <marker date="1557493735332" expanded="false" signature="3260:3329" ph="{...}" />
-            <marker date="1557493735332" expanded="false" signature="3361:3590" ph="{...}" />
-            <marker date="1557493735332" expanded="false" signature="3472:3580" ph="{...}" />
-            <marker date="1557493735332" expanded="false" signature="3632:3815" ph="{...}" />
-            <marker date="1557493735332" expanded="false" signature="3849:4281" ph="{...}" />
-            <marker date="1557493735332" expanded="false" signature="4183:4271" ph="{...}" />
-            <marker date="1557493735332" expanded="false" signature="4315:4478" ph="{...}" />
-            <marker date="1557493735332" expanded="true" signature="4512:4749" ph="{...}" />
-            <marker date="1557493735332" expanded="true" signature="4573:4739" ph="{...}" />
-          </folding>
+        <state relative-caret-position="830">
+          <caret line="58" column="70" selection-start-line="58" selection-start-column="70" selection-end-line="58" selection-end-column="70" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/GoDtmUi/Api/Client.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="159">
-          <caret line="133" column="20" selection-start-line="133" selection-start-column="20" selection-end-line="133" selection-end-column="20" />
+        <state relative-caret-position="850">
+          <caret line="114" column="130" selection-start-line="114" selection-start-column="130" selection-end-line="114" selection-end-column="130" />
           <folding>
-            <marker date="1557489190384" expanded="false" signature="6:95" ph="..." />
-            <marker date="1557489190384" expanded="true" signature="120:6745" ph="{...}" />
-            <marker date="1557489190384" expanded="true" signature="146:6743" ph="{...}" />
-            <marker date="1557489190384" expanded="true" signature="474:558" ph="{...}" />
-            <marker date="1557489190384" expanded="true" signature="669:1715" ph="{...}" />
-            <marker date="1557489190384" expanded="true" signature="939:1027" ph="{...}" />
-            <marker date="1557489190384" expanded="true" signature="1059:1189" ph="{...}" />
-            <marker date="1557489190384" expanded="true" signature="1337:1444" ph="{...}" />
-            <marker date="1557489190384" expanded="true" signature="1461:1567" ph="{...}" />
-            <marker date="1557489190384" expanded="true" signature="1600:1705" ph="{...}" />
-            <marker date="1557489190384" expanded="true" signature="1780:2170" ph="{...}" />
-            <marker date="1557489190384" expanded="true" signature="1927:2025" ph="{...}" />
-            <marker date="1557489190384" expanded="true" signature="2199:2271" ph="{...}" />
-            <marker date="1557489190384" expanded="true" signature="2301:2357" ph="{...}" />
-            <marker date="1557489190384" expanded="true" signature="2416:2561" ph="{...}" />
-            <marker date="1557489190384" expanded="true" signature="2608:2858" ph="{...}" />
-            <marker date="1557489190384" expanded="true" signature="2652:2723" ph="{...}" />
-            <marker date="1557489190384" expanded="true" signature="2777:2848" ph="{...}" />
-            <marker date="1557489190384" expanded="true" signature="2913:3197" ph="{...}" />
-            <marker date="1557489190384" expanded="true" signature="3234:3474" ph="{...}" />
-            <marker date="1557489190384" expanded="true" signature="3514:3766" ph="{...}" />
-            <marker date="1557489190384" expanded="true" signature="3824:4094" ph="{...}" />
-            <marker date="1557489190384" expanded="true" signature="4131:4187" ph="{...}" />
-            <marker date="1557489190384" expanded="true" signature="4237:4294" ph="{...}" />
-            <marker date="1557489190384" expanded="true" signature="4354:4608" ph="{...}" />
-            <marker date="1557489190384" expanded="true" signature="4651:4981" ph="{...}" />
-            <marker date="1557489190384" expanded="true" signature="5062:5327" ph="{...}" />
-            <marker date="1557489190384" expanded="true" signature="5387:5667" ph="{...}" />
-            <marker date="1557489190384" expanded="true" signature="5738:6024" ph="{...}" />
-            <marker date="1557489190384" expanded="true" signature="6082:6349" ph="{...}" />
-            <marker date="1557489190384" expanded="true" signature="6394:6638" ph="{...}" />
-            <marker date="1557489190384" expanded="true" signature="6692:6737" ph="{...}" />
+            <marker date="1557583515580" expanded="false" signature="6:95" ph="..." />
+            <marker date="1557583515580" expanded="true" signature="120:6797" ph="{...}" />
+            <marker date="1557583515580" expanded="true" signature="146:6795" ph="{...}" />
+            <marker date="1557583515580" expanded="true" signature="474:558" ph="{...}" />
+            <marker date="1557583515580" expanded="true" signature="669:1715" ph="{...}" />
+            <marker date="1557583515580" expanded="true" signature="939:1027" ph="{...}" />
+            <marker date="1557583515580" expanded="true" signature="1059:1189" ph="{...}" />
+            <marker date="1557583515580" expanded="true" signature="1337:1444" ph="{...}" />
+            <marker date="1557583515580" expanded="true" signature="1461:1567" ph="{...}" />
+            <marker date="1557583515580" expanded="true" signature="1600:1705" ph="{...}" />
+            <marker date="1557583515580" expanded="true" signature="1780:2170" ph="{...}" />
+            <marker date="1557583515580" expanded="true" signature="1927:2025" ph="{...}" />
+            <marker date="1557583515580" expanded="true" signature="2199:2271" ph="{...}" />
+            <marker date="1557583515580" expanded="true" signature="2301:2357" ph="{...}" />
+            <marker date="1557583515580" expanded="true" signature="2416:2561" ph="{...}" />
+            <marker date="1557583515580" expanded="true" signature="2608:2858" ph="{...}" />
+            <marker date="1557583515580" expanded="true" signature="2652:2723" ph="{...}" />
+            <marker date="1557583515580" expanded="true" signature="2777:2848" ph="{...}" />
+            <marker date="1557583515580" expanded="true" signature="2913:3249" ph="{...}" />
+            <marker date="1557583515580" expanded="true" signature="3286:3526" ph="{...}" />
+            <marker date="1557583515580" expanded="true" signature="3566:3818" ph="{...}" />
+            <marker date="1557583515580" expanded="true" signature="3876:4146" ph="{...}" />
+            <marker date="1557583515580" expanded="true" signature="4183:4239" ph="{...}" />
+            <marker date="1557583515580" expanded="true" signature="4289:4346" ph="{...}" />
+            <marker date="1557583515580" expanded="true" signature="4406:4660" ph="{...}" />
+            <marker date="1557583515580" expanded="true" signature="4703:5033" ph="{...}" />
+            <marker date="1557583515580" expanded="true" signature="5114:5379" ph="{...}" />
+            <marker date="1557583515580" expanded="true" signature="5439:5719" ph="{...}" />
+            <marker date="1557583515580" expanded="true" signature="5790:6076" ph="{...}" />
+            <marker date="1557583515580" expanded="true" signature="6134:6401" ph="{...}" />
+            <marker date="1557583515580" expanded="true" signature="6446:6690" ph="{...}" />
+            <marker date="1557583515580" expanded="true" signature="6744:6789" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GoDtmUi/Program.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="427">
+          <caret line="39" lean-forward="true" selection-start-line="39" selection-end-line="39" />
+          <folding>
+            <marker date="1557074405302" expanded="false" signature="6:149" ph="..." />
+            <marker date="1557074405302" expanded="true" signature="170:1151" ph="{...}" />
+            <marker date="1557074405302" expanded="true" signature="190:1149" ph="{...}" />
+            <marker date="1557074405302" expanded="true" signature="205:413" ph="/* Initialization code. Don't use any Avalonia, third-party APIs or any ... */" />
+            <marker date="1557074405302" expanded="true" signature="790:899" ph="/* Your application's entry point. Here you can initialize your MVVM framework, DI ... */" />
+            <marker date="1557074405302" expanded="true" signature="967:1143" ph="{...}" />
+            <marker date="1557074405302" expanded="true" signature="1030:1102" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/90E93788-E934-48B7-A7CB-CECAB05F4851/62/d945fc6f/ExceptionDispatchInfo.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="274">
+          <caret line="91" column="6" selection-start-line="91" selection-start-column="6" selection-end-line="91" selection-end-column="6" />
+          <folding>
+            <marker date="1557002623243" expanded="true" signature="0:360" ph="/* Decompiled with JetBrains decompiler ... */" />
+            <marker date="1557002623243" expanded="true" signature="431:2426" ph="{...}" />
+            <marker date="1557002623243" expanded="true" signature="477:2424" ph="{...}" />
+            <marker date="1557002623243" expanded="true" signature="759:1239" ph="{...}" />
+            <marker date="1557002623243" expanded="true" signature="1280:1360" ph="{...}" />
+            <marker date="1557002623243" expanded="true" signature="1296:1354" ph="{...}" />
+            <marker date="1557002623243" expanded="true" signature="1395:1470" ph="{...}" />
+            <marker date="1557002623243" expanded="true" signature="1411:1464" ph="{...}" />
+            <marker date="1557002623243" expanded="true" signature="1513:1585" ph="{...}" />
+            <marker date="1557002623243" expanded="true" signature="1529:1579" ph="{...}" />
+            <marker date="1557002623243" expanded="true" signature="1625:1701" ph="{...}" />
+            <marker date="1557002623243" expanded="true" signature="1641:1695" ph="{...}" />
+            <marker date="1557002623243" expanded="true" signature="1739:1817" ph="{...}" />
+            <marker date="1557002623243" expanded="true" signature="1755:1811" ph="{...}" />
+            <marker date="1557002623243" expanded="true" signature="1884:2049" ph="{...}" />
+            <marker date="1557002623243" expanded="true" signature="2087:2158" ph="{...}" />
+            <marker date="1557002623243" expanded="true" signature="2103:2152" ph="{...}" />
+            <marker date="1557002623243" expanded="true" signature="2206:2307" ph="{...}" />
+            <marker date="1557002623243" expanded="true" signature="2355:2420" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GoDtmUi/Views/TaskFilterView.xaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="541">
+          <caret line="36" column="80" lean-forward="true" selection-start-line="36" selection-start-column="80" selection-end-line="36" selection-end-column="80" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/FE782EBE-B64C-4E89-A7E1-94C33DCD5D79/4/RoutedEvent.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="227">
+          <caret line="114" column="24" selection-start-line="114" selection-start-column="24" selection-end-line="114" selection-end-column="24" />
+          <folding>
+            <marker date="1557003712816" expanded="true" signature="0:164" ph="/* Copyright (c) The Avalonia Project. All rights reserved. ... */" />
+            <marker date="1557003712816" expanded="false" signature="172:276" ph="..." />
+            <marker date="1557003712816" expanded="true" signature="310:5439" ph="{...}" />
+            <marker date="1557003712816" expanded="true" signature="358:439" ph="{...}" />
+            <marker date="1557003712816" expanded="true" signature="469:4272" ph="{...}" />
+            <marker date="1557003712816" expanded="true" signature="841:1372" ph="{...}" />
+            <marker date="1557003712816" expanded="true" signature="1407:1469" ph="{...}" />
+            <marker date="1557003712816" expanded="true" signature="1497:1559" ph="{...}" />
+            <marker date="1557003712816" expanded="true" signature="1590:1652" ph="{...}" />
+            <marker date="1557003712816" expanded="true" signature="1704:1766" ph="{...}" />
+            <marker date="1557003712816" expanded="true" signature="2122:2421" ph="{...}" />
+            <marker date="1557003712816" expanded="true" signature="2641:2930" ph="{...}" />
+            <marker date="1557003712816" expanded="true" signature="3190:4003" ph="{...}" />
+            <marker date="1557003712816" expanded="true" signature="3244:3991" ph="{...}" />
+            <marker date="1557003712816" expanded="true" signature="3577:3977" ph="{...}" />
+            <marker date="1557003712816" expanded="true" signature="3619:3721" ph="{...}" />
+            <marker date="1557003712816" expanded="true" signature="3778:3959" ph="{...}" />
+            <marker date="1557003712816" expanded="true" signature="4073:4146" ph="{...}" />
+            <marker date="1557003712816" expanded="true" signature="4208:4266" ph="{...}" />
+            <marker date="1557003712816" expanded="true" signature="4371:5437" ph="{...}" />
+            <marker date="1557003712816" expanded="true" signature="4545:4706" ph="{...}" />
+            <marker date="1557003712816" expanded="true" signature="5002:5431" ph="{...}" />
+            <marker date="1557003712816" expanded="true" signature="5079:5331" ph="{...}" />
+            <marker date="1557003712816" expanded="true" signature="5238:5317" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GoDtmUi/Utils/StringUtils.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="34" selection-start-line="6" selection-start-column="34" selection-end-line="6" selection-end-column="34" />
+          <folding>
+            <marker date="1557587833163" expanded="true" signature="38:214" ph="{...}" />
+            <marker date="1557587833163" expanded="true" signature="76:212" ph="{...}" />
+            <marker date="1557587833163" expanded="true" signature="140:206" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GoDtmUi/Models/User.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="41" selection-start-line="12" selection-start-column="41" selection-end-line="12" selection-end-column="41" />
+          <folding>
+            <marker date="1557588106974" expanded="true" signature="50:571" ph="{...}" />
+            <marker date="1557588106974" expanded="true" signature="74:569" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GoDtmUi/Utils/DictioanaryUtils.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="1" lean-forward="true" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
+          <folding>
+            <marker date="1557588302891" expanded="true" signature="60:406" ph="{...}" />
+            <marker date="1557588302891" expanded="true" signature="103:404" ph="{...}" />
+            <marker date="1557588302891" expanded="true" signature="244:398" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GoDtmUi/Models/TasksFilter.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="8" column="50" lean-forward="true" selection-start-line="8" selection-start-column="50" selection-end-line="8" selection-end-column="50" />
+          <folding>
+            <marker date="1557587402989" expanded="true" signature="24:2086" ph="{...}" />
+            <marker date="1557587402989" expanded="true" signature="55:2084" ph="{...}" />
+            <marker date="1557587402989" expanded="true" signature="447:644" ph="{...}" />
+            <marker date="1557587402989" expanded="true" signature="501:634" ph="{...}" />
+            <marker date="1557587402989" expanded="true" signature="704:905" ph="{...}" />
+            <marker date="1557587402989" expanded="true" signature="759:895" ph="{...}" />
+            <marker date="1557587402989" expanded="true" signature="965:1166" ph="{...}" />
+            <marker date="1557587402989" expanded="true" signature="1020:1156" ph="{...}" />
+            <marker date="1557587402989" expanded="true" signature="1228:1430" ph="{...}" />
+            <marker date="1557587402989" expanded="true" signature="1285:1420" ph="{...}" />
+            <marker date="1557587402989" expanded="true" signature="1488:1682" ph="{...}" />
+            <marker date="1557587402989" expanded="true" signature="1543:1672" ph="{...}" />
+            <marker date="1557587402989" expanded="true" signature="1898:2078" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GoDtmUi/ViewModels/MainWindowViewModel.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="370">
+          <caret line="142" column="12" selection-start-line="142" selection-start-column="12" selection-end-line="142" selection-end-column="12" />
+          <folding>
+            <marker date="1557588399132" expanded="false" signature="6:223" ph="..." />
+            <marker date="1557588399132" expanded="true" signature="255:5579" ph="{...}" />
+            <marker date="1557588399132" expanded="true" signature="310:5577" ph="{...}" />
+            <marker date="1557588399132" expanded="false" signature="1243:1369" ph="{...}" />
+            <marker date="1557588399132" expanded="false" signature="1398:1512" ph="{...}" />
+            <marker date="1557588399132" expanded="false" signature="1552:1674" ph="{...}" />
+            <marker date="1557588399132" expanded="false" signature="1711:1825" ph="{...}" />
+            <marker date="1557588399132" expanded="false" signature="1857:1981" ph="{...}" />
+            <marker date="1557588399132" expanded="false" signature="2110:2552" ph="{...}" />
+            <marker date="1557588399132" expanded="false" signature="2427:2542" ph="{...}" />
+            <marker date="1557588399132" expanded="false" signature="2590:2639" ph="{...}" />
+            <marker date="1557588399132" expanded="false" signature="2671:2897" ph="{...}" />
+            <marker date="1557588399132" expanded="false" signature="2940:3245" ph="{...}" />
+            <marker date="1557588399132" expanded="false" signature="3037:3235" ph="{...}" />
+            <marker date="1557588399132" expanded="false" signature="3281:3350" ph="{...}" />
+            <marker date="1557588399132" expanded="true" signature="3382:4412" ph="{...}" />
+            <marker date="1557588399132" expanded="true" signature="3446:3538" ph="{...}" />
+            <marker date="1557588399132" expanded="true" signature="4294:4402" ph="{...}" />
+            <marker date="1557588399132" expanded="true" signature="4454:4637" ph="{...}" />
+            <marker date="1557588399132" expanded="true" signature="4671:5103" ph="{...}" />
+            <marker date="1557588399132" expanded="true" signature="5005:5093" ph="{...}" />
+            <marker date="1557588399132" expanded="true" signature="5137:5300" ph="{...}" />
+            <marker date="1557588399132" expanded="true" signature="5334:5571" ph="{...}" />
+            <marker date="1557588399132" expanded="true" signature="5395:5561" ph="{...}" />
           </folding>
         </state>
       </provider>
