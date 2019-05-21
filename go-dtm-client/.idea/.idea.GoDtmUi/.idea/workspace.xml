@@ -2,14 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c981dc34-cd68-400e-bf3e-a27bcca7896f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/GoDtmUi/Utils/DictioanaryUtils.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GoDtmUi/Utils/StringUtils.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.GoDtmUi/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GoDtmUi/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GoDtmUi/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GoDtmUi/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GoDtmUi/Api/Client.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GoDtmUi/Api/Client.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GoDtmUi/Models/TasksFilter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GoDtmUi/Models/TasksFilter.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GoDtmUi/ViewModels/MainWindowViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GoDtmUi/ViewModels/MainWindowViewModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GoDtmUi/Views/TaskFilterView.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/GoDtmUi/Views/TaskFilterView.xaml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -22,33 +15,33 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/GoDtmUi/ViewModels/MainWindowViewModel.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="370">
-              <caret line="142" column="12" selection-start-line="142" selection-start-column="12" selection-end-line="142" selection-end-column="12" />
+            <state relative-caret-position="340">
+              <caret line="147" column="13" lean-forward="true" selection-start-line="147" selection-start-column="13" selection-end-line="147" selection-end-column="13" />
               <folding>
-                <marker date="1557588399132" expanded="false" signature="6:223" ph="..." />
-                <marker date="1557588399132" expanded="true" signature="255:5579" ph="{...}" />
-                <marker date="1557588399132" expanded="true" signature="310:5577" ph="{...}" />
-                <marker date="1557588399132" expanded="false" signature="1243:1369" ph="{...}" />
-                <marker date="1557588399132" expanded="false" signature="1398:1512" ph="{...}" />
-                <marker date="1557588399132" expanded="false" signature="1552:1674" ph="{...}" />
-                <marker date="1557588399132" expanded="false" signature="1711:1825" ph="{...}" />
-                <marker date="1557588399132" expanded="false" signature="1857:1981" ph="{...}" />
-                <marker date="1557588399132" expanded="false" signature="2110:2552" ph="{...}" />
-                <marker date="1557588399132" expanded="false" signature="2427:2542" ph="{...}" />
-                <marker date="1557588399132" expanded="false" signature="2590:2639" ph="{...}" />
-                <marker date="1557588399132" expanded="false" signature="2671:2897" ph="{...}" />
-                <marker date="1557588399132" expanded="false" signature="2940:3245" ph="{...}" />
-                <marker date="1557588399132" expanded="false" signature="3037:3235" ph="{...}" />
-                <marker date="1557588399132" expanded="false" signature="3281:3350" ph="{...}" />
-                <marker date="1557588399132" expanded="true" signature="3382:4412" ph="{...}" />
-                <marker date="1557588399132" expanded="true" signature="3446:3538" ph="{...}" />
-                <marker date="1557588399132" expanded="true" signature="4294:4402" ph="{...}" />
-                <marker date="1557588399132" expanded="true" signature="4454:4637" ph="{...}" />
-                <marker date="1557588399132" expanded="true" signature="4671:5103" ph="{...}" />
-                <marker date="1557588399132" expanded="true" signature="5005:5093" ph="{...}" />
-                <marker date="1557588399132" expanded="true" signature="5137:5300" ph="{...}" />
-                <marker date="1557588399132" expanded="true" signature="5334:5571" ph="{...}" />
-                <marker date="1557588399132" expanded="true" signature="5395:5561" ph="{...}" />
+                <marker date="1557590364561" expanded="false" signature="6:223" ph="..." />
+                <marker date="1557590364561" expanded="true" signature="255:5579" ph="{...}" />
+                <marker date="1557590364561" expanded="true" signature="310:5577" ph="{...}" />
+                <marker date="1557590364561" expanded="false" signature="1243:1369" ph="{...}" />
+                <marker date="1557590364561" expanded="false" signature="1398:1512" ph="{...}" />
+                <marker date="1557590364561" expanded="false" signature="1552:1674" ph="{...}" />
+                <marker date="1557590364561" expanded="false" signature="1711:1825" ph="{...}" />
+                <marker date="1557590364561" expanded="false" signature="1857:1981" ph="{...}" />
+                <marker date="1557590364561" expanded="false" signature="2110:2552" ph="{...}" />
+                <marker date="1557590364561" expanded="false" signature="2427:2542" ph="{...}" />
+                <marker date="1557590364561" expanded="false" signature="2590:2639" ph="{...}" />
+                <marker date="1557590364561" expanded="false" signature="2671:2897" ph="{...}" />
+                <marker date="1557590364561" expanded="false" signature="2940:3245" ph="{...}" />
+                <marker date="1557590364561" expanded="false" signature="3037:3235" ph="{...}" />
+                <marker date="1557590364561" expanded="false" signature="3281:3350" ph="{...}" />
+                <marker date="1557590364561" expanded="true" signature="3382:4412" ph="{...}" />
+                <marker date="1557590364561" expanded="true" signature="3446:3538" ph="{...}" />
+                <marker date="1557590364561" expanded="true" signature="4294:4402" ph="{...}" />
+                <marker date="1557590364561" expanded="true" signature="4454:4637" ph="{...}" />
+                <marker date="1557590364561" expanded="true" signature="4671:5103" ph="{...}" />
+                <marker date="1557590364561" expanded="true" signature="5005:5093" ph="{...}" />
+                <marker date="1557590364561" expanded="true" signature="5137:5300" ph="{...}" />
+                <marker date="1557590364561" expanded="true" signature="5334:5571" ph="{...}" />
+                <marker date="1557590364561" expanded="true" signature="5395:5561" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -289,7 +282,7 @@
       <workItem from="1557074360127" duration="6429000" />
       <workItem from="1557437442423" duration="15399000" />
       <workItem from="1557576054052" duration="202000" />
-      <workItem from="1557576335811" duration="7881000" />
+      <workItem from="1557576335811" duration="8187000" />
     </task>
     <task id="LOCAL-00001" summary="comments added">
       <created>1557080767492</created>
@@ -312,11 +305,18 @@
       <option name="project" value="LOCAL" />
       <updated>1557494441325</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="gui completed">
+      <created>1557590442368</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1557590442369</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="29911000" />
+    <option name="totallyTimeSpent" value="30217000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -329,7 +329,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17590618" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -349,7 +348,7 @@
       <window_info anchor="bottom" id="Version Control" order="10" weight="0.32936078" />
       <window_info anchor="bottom" id="Database Changes" order="11" />
       <window_info anchor="bottom" id="Unit Tests" order="12" weight="0.32936078" />
-      <window_info anchor="bottom" id="Terminal" order="13" weight="0.32936078" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="13" visible="true" weight="0.32936078" />
       <window_info anchor="bottom" id="Event Log" order="14" side_tool="true" />
       <window_info anchor="bottom" id="Build" order="15" weight="0.32936078" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -378,32 +377,6 @@
           <properties exception="System.Threading.ThreadAbortException" displayValue="System.Threading.ThreadAbortException" />
           <option name="timeStamp" value="1" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/GoDtmUi/ViewModels/MainWindowViewModel.cs</url>
-          <line>136</line>
-          <properties documentPath="$PROJECT_DIR$/GoDtmUi/ViewModels/MainWindowViewModel.cs" initialLine="136">
-            <startOffsets>
-              <option value="4015" />
-            </startOffsets>
-            <endOffsets>
-              <option value="4047" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/GoDtmUi/ViewModels/MainWindowViewModel.cs</url>
-          <line>139</line>
-          <properties documentPath="$PROJECT_DIR$/GoDtmUi/ViewModels/MainWindowViewModel.cs" initialLine="139">
-            <startOffsets>
-              <option value="4114" />
-            </startOffsets>
-            <endOffsets>
-              <option value="4144" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="10" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
@@ -1369,33 +1342,33 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/GoDtmUi/ViewModels/MainWindowViewModel.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="370">
-          <caret line="142" column="12" selection-start-line="142" selection-start-column="12" selection-end-line="142" selection-end-column="12" />
+        <state relative-caret-position="340">
+          <caret line="147" column="13" lean-forward="true" selection-start-line="147" selection-start-column="13" selection-end-line="147" selection-end-column="13" />
           <folding>
-            <marker date="1557588399132" expanded="false" signature="6:223" ph="..." />
-            <marker date="1557588399132" expanded="true" signature="255:5579" ph="{...}" />
-            <marker date="1557588399132" expanded="true" signature="310:5577" ph="{...}" />
-            <marker date="1557588399132" expanded="false" signature="1243:1369" ph="{...}" />
-            <marker date="1557588399132" expanded="false" signature="1398:1512" ph="{...}" />
-            <marker date="1557588399132" expanded="false" signature="1552:1674" ph="{...}" />
-            <marker date="1557588399132" expanded="false" signature="1711:1825" ph="{...}" />
-            <marker date="1557588399132" expanded="false" signature="1857:1981" ph="{...}" />
-            <marker date="1557588399132" expanded="false" signature="2110:2552" ph="{...}" />
-            <marker date="1557588399132" expanded="false" signature="2427:2542" ph="{...}" />
-            <marker date="1557588399132" expanded="false" signature="2590:2639" ph="{...}" />
-            <marker date="1557588399132" expanded="false" signature="2671:2897" ph="{...}" />
-            <marker date="1557588399132" expanded="false" signature="2940:3245" ph="{...}" />
-            <marker date="1557588399132" expanded="false" signature="3037:3235" ph="{...}" />
-            <marker date="1557588399132" expanded="false" signature="3281:3350" ph="{...}" />
-            <marker date="1557588399132" expanded="true" signature="3382:4412" ph="{...}" />
-            <marker date="1557588399132" expanded="true" signature="3446:3538" ph="{...}" />
-            <marker date="1557588399132" expanded="true" signature="4294:4402" ph="{...}" />
-            <marker date="1557588399132" expanded="true" signature="4454:4637" ph="{...}" />
-            <marker date="1557588399132" expanded="true" signature="4671:5103" ph="{...}" />
-            <marker date="1557588399132" expanded="true" signature="5005:5093" ph="{...}" />
-            <marker date="1557588399132" expanded="true" signature="5137:5300" ph="{...}" />
-            <marker date="1557588399132" expanded="true" signature="5334:5571" ph="{...}" />
-            <marker date="1557588399132" expanded="true" signature="5395:5561" ph="{...}" />
+            <marker date="1557590364561" expanded="false" signature="6:223" ph="..." />
+            <marker date="1557590364561" expanded="true" signature="255:5579" ph="{...}" />
+            <marker date="1557590364561" expanded="true" signature="310:5577" ph="{...}" />
+            <marker date="1557590364561" expanded="false" signature="1243:1369" ph="{...}" />
+            <marker date="1557590364561" expanded="false" signature="1398:1512" ph="{...}" />
+            <marker date="1557590364561" expanded="false" signature="1552:1674" ph="{...}" />
+            <marker date="1557590364561" expanded="false" signature="1711:1825" ph="{...}" />
+            <marker date="1557590364561" expanded="false" signature="1857:1981" ph="{...}" />
+            <marker date="1557590364561" expanded="false" signature="2110:2552" ph="{...}" />
+            <marker date="1557590364561" expanded="false" signature="2427:2542" ph="{...}" />
+            <marker date="1557590364561" expanded="false" signature="2590:2639" ph="{...}" />
+            <marker date="1557590364561" expanded="false" signature="2671:2897" ph="{...}" />
+            <marker date="1557590364561" expanded="false" signature="2940:3245" ph="{...}" />
+            <marker date="1557590364561" expanded="false" signature="3037:3235" ph="{...}" />
+            <marker date="1557590364561" expanded="false" signature="3281:3350" ph="{...}" />
+            <marker date="1557590364561" expanded="true" signature="3382:4412" ph="{...}" />
+            <marker date="1557590364561" expanded="true" signature="3446:3538" ph="{...}" />
+            <marker date="1557590364561" expanded="true" signature="4294:4402" ph="{...}" />
+            <marker date="1557590364561" expanded="true" signature="4454:4637" ph="{...}" />
+            <marker date="1557590364561" expanded="true" signature="4671:5103" ph="{...}" />
+            <marker date="1557590364561" expanded="true" signature="5005:5093" ph="{...}" />
+            <marker date="1557590364561" expanded="true" signature="5137:5300" ph="{...}" />
+            <marker date="1557590364561" expanded="true" signature="5334:5571" ph="{...}" />
+            <marker date="1557590364561" expanded="true" signature="5395:5561" ph="{...}" />
           </folding>
         </state>
       </provider>
